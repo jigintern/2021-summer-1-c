@@ -1,0 +1,66 @@
+body{width: 375px;}
+
+h2{
+    text-align: center;
+    margin: 20px auto;
+}
+
+.top{
+    position: relative;
+}
+
+.top img{
+    width: 100%;
+    padding: 0;
+}
+
+.top h2{
+    position: absolute; 
+    left: 40px; 
+    top: 230px; 
+    font-size: 20px;
+    color: white;
+    backdrop-filter: blur(12px);
+}
+
+.top p{
+    position: absolute;
+    right:40px ;
+    bottom: 50px; 
+    font-size: 20px;
+    color: white;
+    border-bottom: solid;
+    border-right: solid;
+    background-color: #505050;
+    padding: 10px;
+}
+
+.about{
+    text-align: center;
+}
+
+.icon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #ffffff;
+}
+
+div > p{
+    text-align: center;
+}
+
+div > img{
+    width: 150px;
+    padding: 20px 10px;
+}
+
+.icon > a{
+    border: solid;
+    margin: 20px 10px;
+    border-radius: 8px;
+}
+
+a{text-decoration: none;}
+a:link {color: #000000}
+a:visited {color: #000000}
