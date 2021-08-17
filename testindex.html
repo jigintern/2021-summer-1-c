@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <script type=module>
-            loca.onclick=async()=>{
-                const data=await fetchJSON("api/loca")
-            }
-            info.onclick=async()=>{
-                const data=await fetchJSON("api/loca")
-            }
-        </script>
-    </head>
-    <body>
-        <h1>これはapiのテスト用ページです。使用しないでくださいbyもっく</h1>
-        ID:<input type =text id=num><br>
-        <button id=loca>location get</button>
-        <button id=info>location get</button>
-    </body>
-</html>
+<h1>これはapiのテスト用ページです。使用しないでくださいbyもっく</h1>
+ID:<input type =text id=num><br>
+<button id=loca>location get</button>
+<button id=info>infomation get</button>
+
+
+<script type=module>
+    import {fetchJSON} from "https://js.sabae.cc/fetchJSON.js";
+    loca.onclick = async() => {
+        const data=await fetchJSON("api/loca",num.value);
+        console.log(data);
+        alert(data);
+    }
+    info.onclick=async()=>{
+        const data=await fetchJSON("api/info",num.value);
+        console.log(data);
+        alert(data);
+    }
+</script>
