@@ -28,14 +28,34 @@ function success(position){
             ]
         }]
     });
+
     var TargetMarker = new google.maps.Marker({
         map: map,
         position: targetlatlng,
     });
-    var marker = new google.maps.Marker({
+
+    var infoWindow = new google.maps.InfoWindow({
+		content: 'めがね会館'
+	});
+	google.maps.event.addListener(TargetMarker, 'click', function() {
+		infoWindow.open(map,TargetMarker);
+	});
+
+    var Marker = new google.maps.Marker({
         map: map,
         position: latlng,
+        icon:{
+            path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+            scale: 6,
+            rotation: -90,
+            fillColor: '#7fbfff',
+            fillOpacity: 0.7,
+            strokeColor: '#000000',
+            strokeWeight: 2 
+        }
     });
+
+
     if(lat>targetlat){
         var maxlat = lat;
         var minlat = targetlat;
@@ -55,7 +75,26 @@ function success(position){
     var ne = new google.maps.LatLng(minlat,maxlng);
     var bounds = new google.maps.LatLngBounds(sw, ne);
     map.fitBounds(bounds,5);
+    google.maps.event.addListener(map, 'click', event => clickListener(event, map));
+    
+    function clickListener(event, map) {
+        let text = prompt('説明を入力して下さい','例:jig.jp');
+        let lat = event.latLng.lat();
+        let lng = event.latLng.lng();
+        let Marker = new google.maps.Marker({
+          position: {lat, lng},
+          map:map,
+        });
+        var infoWindow = new google.maps.InfoWindow({
+            content: text
+        });
+        google.maps.event.addListener(Marker, 'click', function() {
+		    infoWindow.open(map,Marker);
+	    });
+    }    
 }
 function error(e){
     alert("エラーが発生しました - " + e.message);
 }
+
+
