@@ -3,8 +3,10 @@ import {jsonfs} from "https://js.sabae.cc/jsonfs.js";
 
 const locafn="data/location.json";
 const infofn="data/infomation.json";
+const iconfn="data/icon.json";
 let loca=jsonfs.read(locafn)||[];
 let info=jsonfs.read(infofn)||[];
+let icon=jsonfs.read(iconfn)||[];
 
 class MyServer extends Server{
     api(path,reqID){
@@ -23,6 +25,8 @@ class MyServer extends Server{
                 }
             }
             return "warning";
+        } else if (path == "/api/icon") {//
+            return icon;
         }
     }
 }
