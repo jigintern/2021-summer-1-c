@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type=module>
+            loca.onclick=async()=>{
+                const data=await fetchJSON("api/loca")
+            }
+            info.onclick=async()=>{
+                const data=await fetchJSON("api/loca")
+            }
+        </script>
+    </head>
+    <body>
+        <h1>これはapiのテスト用ページです。使用しないでくださいbyもっく</h1>
+        ID:<input type =text id=num><br>
+        <button id=loca>location get</button>
+        <button id=info>location get</button>
+    </body>
+</html>
