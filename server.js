@@ -10,25 +10,19 @@ class MyServer extends Server{
     api(path,reqID){
         
         if(path=="/api/loca"){//
-            let data=[];
             for(const d of loca){
                 if(d.ID==reqID){
-                    data=d;
-                    break;
+                    return d;
                 }
             }
-            console.log(data);
-            return data;
+            return "warning";
         }else if(path=="/api/info"){//
-            let data=[];
             for(const d of info){
                 if(d.ID==reqID){
-                    data=d;
-                    break;
+                    return d;
                 }
             }
-            console.log(data);
-            return data;
+            return "warning";
         }
     }
 }
