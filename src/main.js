@@ -1,8 +1,20 @@
-function initMap(){    
-    var map;
-    map = new google.maps.Map(document.getElementById('map'),{
-        center: {lat:35.943297, lng:136.186513},
-        zoom: 18,
+function initMap(){
+    if (typeof(navigator.geolocation) != 'undefined') {
+        navigator.geolocation.watchPosition(success, error);
+    }
+}
+function success(position){
+    var targetlat = 35.94292;
+    var targetlng = 136.186513;
+    var targetlatlng = new google.maps.LatLng(targetlat,targetlng);
+
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    var latlng = new google.maps.LatLng(lat,lng);
+
+    var map = new google.maps.Map(document.getElementById('map'),{
+        center: latlng,
+        zoom: 17,
         mapTypeControl: false,
         panControl: false,
         zoomControl: false,
@@ -16,41 +28,34 @@ function initMap(){
             ]
         }]
     });
-}
-function getMyPlace() {
-    var output = document.getElementById("result");
-    if (!navigator.geolocation){//Geolocation apiがサポートされていない場合
-      output.innerHTML = "<p>Geolocationはあなたのブラウザーでサポートされておりません</p>";
-      return;
+    var TargetMarker = new google.maps.Marker({
+        map: map,
+        position: targetlatlng,
+    });
+    var marker = new google.maps.Marker({
+        map: map,
+        position: latlng,
+    });
+    if(lat>targetlat){
+        var maxlat = lat;
+        var minlat = targetlat;
+    } else {
+        var maxlat = targetlat;
+        var minlat = lat;
     }
-    function success(position) {
-      var lat = position.coords.latitude;
-      var lng = position.coords.longitude;
-      output.innerHTML = '<p>緯度 ' + lat + '° <br>経度 ' + lng + '°</p>';
-      var latlng = new google.maps.LatLng(lat,lng) ;
-      var map = new google.maps.Map( document.getElementById( 'map' ) , {
-        center: latlng,
-        zoom: 18,
-        mapTypeControl: false,
-        panControl: false,
-        zoomControl: false,
-        scaleControl: false,
-        streetViewControl:false,
-        styles: [{
-            featureType: 'all',
-            elementType: 'labels',
-            stylers: [
-                { visibility: 'off' }
-            ]
-        }]  
-      });
-      new google.maps.Marker( {
-          map: map ,
-          position: latlng ,
-      });
-    };
-    function error() {
-      output.innerHTML = "座標位置を取得できません";
-    };
-    navigator.geolocation.getCurrentPosition(success, error);
+
+    if(lng>targetlng){
+        var maxlng = lng;
+        var minlng = targetlng;
+    }else{
+        var maxlng = targetlng;
+        var minlng = lng;
+    }
+    var sw = new google.maps.LatLng(maxlat,minlng);
+    var ne = new google.maps.LatLng(minlat,maxlng);
+    var bounds = new google.maps.LatLngBounds(sw, ne);
+    map.fitBounds(bounds,5);
+}
+function error(e){
+    alert("エラーが発生しました - " + e.message);
 }
