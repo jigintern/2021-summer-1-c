@@ -29,17 +29,16 @@
                     <p>赤ピン＝目的地、星マーク＝お気に入り、矢印＝あなたの現在地</p>
                 </div>
             </section>
-            <section class="content">
-                <div id="explain" class="wrapper">
-
+            <section id="mymap" class="wrapper">
+                <div class="section-title">
+                    <h2>地図</h2>
                 </div>
-                <div class="wrapper">
-                    <div id="result"></div>
+                <div class="content">
                     <div id="map"></div>
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB253fu1pMzWUess1PmousKQx6apQCR0Jc&callback=initMap" async defer></script>
                     <!--Google Maps API KEY = AIzaSyB253fu1pMzWUess1PmousKQx6apQCR0Jc-->    
                 </div>
-                <div class="wrapper">
+                <div class="delete">
                     <a href="#" class="btn" onclick=onClick()>マーカーを削除</a>
                 </div>
                 <div id="information" class="wrapper">
