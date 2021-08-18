@@ -11,18 +11,40 @@
         <script type= "text/javascript" src="src/main.js"></script>
     </head>
     <body>
-        <header id="header">
-
-        </header>
+        <div class="header">
+            <header id="header">
+                <h1 class="site-title">
+                    <!-- <a href="">Team-C作品</a> -->
+                    Team-C作品
+                </h1>
+            </header>    
+        </div>
         <main>
-            <div class="wrapper">
-                <div id="result"></div>
-                <div id="map"></div>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB253fu1pMzWUess1PmousKQx6apQCR0Jc&callback=initMap" async defer></script>
-                <!--Google Maps API KEY = AIzaSyB253fu1pMzWUess1PmousKQx6apQCR0Jc-->    
-            </div>
-            <div id="information" class="wrapper">
-            </div>
+            <section id="explain" class="wrapper">
+                <div class="section-title">
+                    <h2>説明</h2>
+                </div>
+                <div class="content">
+                    <p>地図上をクリックして自分で見つけたお気に入りの場所にマークを付けることができます</p><br>
+                    <p>赤ピン＝目的地、星マーク＝お気に入り、矢印＝あなたの現在地</p>
+                </div>
+            </section>
+            <section class="content">
+                <div id="explain" class="wrapper">
+
+                </div>
+                <div class="wrapper">
+                    <div id="result"></div>
+                    <div id="map"></div>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB253fu1pMzWUess1PmousKQx6apQCR0Jc&callback=initMap" async defer></script>
+                    <!--Google Maps API KEY = AIzaSyB253fu1pMzWUess1PmousKQx6apQCR0Jc-->    
+                </div>
+                <div class="wrapper">
+                    <a href="#" class="btn" onclick=onClick()>マーカーを削除</a>
+                </div>
+                <div id="information" class="wrapper">
+                </div>
+            </section>
         </main>
     </body>
 </html>
