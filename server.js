@@ -2,7 +2,7 @@ import {Server} from "https://js.sabae.cc/Server.js";
 import {jsonfs} from "https://js.sabae.cc/jsonfs.js";
 
 const locafn="data/location.json";
-const infofn="data/infomation.json";
+const infofn="data/information.json";
 const iconfn="data/icon.json";
 const udatafn="data/userdata.json";
 
@@ -20,6 +20,7 @@ class MyServer extends Server{
         if(path=="/api/loca"){
             //指定されたIDのlocation.jsonを返す
             //call:("/api/add",ID),return:{ID,name,lat,lng}
+            console.log("call loca");
             for(const d of loca){
                 if(d.ID==req){
                     return d;
@@ -29,6 +30,7 @@ class MyServer extends Server{
         }else if(path=="/api/info"){
             //指定されたIDのinfomation.jsonを返す
             //call:("/api/info",ID),return:{ID,info[]}
+            console.log("call info");
             for(const d of info){
                 if(d.ID==req){
                     return d;
@@ -36,11 +38,14 @@ class MyServer extends Server{
             }
             return "warning";
         } else if (path == "/api/icon") {
+            console.log("call icon");
             //今持つすべてのicon.jsonの情報を返す
             //call:("/api/icon"),return:[{iconID,addres}]
             return icon;
-        }else if (path == "/api/add") {//位置情報を保存する
+        }else if (path == "/api/add") {
+            //位置情報を保存する
             //call:("/api/add",{travelID,data[{type,date,iconID,lat,lng}]}),return:ok
+            console.log("call add")
             for(const d in udata){
                if(udata[d].travelID==req.travelID){
                     udata[d].data.push(req.data);
@@ -52,8 +57,10 @@ class MyServer extends Server{
            udata[udata.length-1].data.push(req.data);
            jsonfs.write(udatafn,udata);
            return "make new record. push ok";
-        } else if (path == "/api/dist") {//距離を求める
+        } else if (path == "/api/dist") {
+            //距離を求める
             //call:("/api/dist",{"origin":{"lat":"value","lng":"value"},"destination":{"lat":"value","lng":"value"}}),return:dist
+            console.log("call dist");
 
             if (!(req.origin && req.destination)) return "warning"; //例外処理
 
