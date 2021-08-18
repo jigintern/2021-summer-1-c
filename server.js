@@ -57,6 +57,16 @@ class MyServer extends Server{
            udata[udata.length-1].data.push(req.data);
            jsonfs.write(udatafn,udata);
            return "make new record. push ok";
+        } else if (path == "/api/get") {
+            //位置情報を取得する
+            //call:("/api/add",travelID),return:ok
+            console.log("call get");
+            for(const d in udata){
+               if(udata[d].travelID==req){
+                return udata[d];
+               }
+            }
+            return "warning";
         } else if (path == "/api/dist") {
             //距離を求める
             //call:("/api/dist",{"origin":{"lat":"value","lng":"value"},"destination":{"lat":"value","lng":"value"}}),return:dist
