@@ -1,0 +1,82 @@
+body{width: 375px;}
+a{text-decoration: none;}
+a:link {color: #000000}
+a:visited {color: #000000}
+p{text-align: center;}
+
+h2{
+    margin: 20px auto;
+    border: 1px solid #000;
+    border-width: 0 0 1px 7px;
+}
+
+.top{
+    position: relative;
+}
+
+.top img{
+    width: 100%;
+    padding: 0;
+}
+
+.top h3{
+    position: absolute; 
+    left: 40px; 
+    top: 280px; 
+    font-size: 20px;
+    color: white;  
+    backdrop-filter: blur(12px);
+}
+
+.btn{
+    position: absolute;
+    right:40px ;
+    bottom: 50px; 
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    border-bottom: solid;
+    border-right: solid;
+    border-color: #bebebe;
+    background-color: #505050;
+    padding: 10px;
+}
+
+.icon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div > img{
+    width: 150px;
+    padding: 20px 10px;
+}
+
+.icon > a{
+    border: solid;
+    margin: 20px 10px;
+    border-radius: 8px;
+}
+
+.board .btn{
+    position: static;
+    width: 160px;
+    text-align: center;
+    margin: auto;
+    margin-right: 0;
+    margin-top: 8px;
+}
+
+.sns{
+    height: 200px;
+}
+
+footer{
+	background-color: gray;
+}
+
+footer p{
+	font-size: 14px;
+	padding-top: 4%;
+	color: white;
+}

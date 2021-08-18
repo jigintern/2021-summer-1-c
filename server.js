@@ -52,20 +52,25 @@ class MyServer extends Server{
            udata[udata.length-1].data.push(req.data);
            jsonfs.write(udatafn,udata);
            return "make new record. push ok";
-        } else if (path == "/api/dist") {
-            //距離を求める
+        } else if (path == "/api/dist") {//距離を求める
+            //call:("/api/dist",{"origin":{"lat":"value","lng":"value"},"destination":{"lat":"value","lng":"value"}}),return:dist
+
+            if (!(req.origin && req.destination)) return "warning"; //例外処理
+
             let dist = 0;
             const origin = req.origin;
             const destination = req.destination;
             const reqURL = `${DIRECTIONS_API_URL}origin=${origin.lat},${origin.lng}&destination=${destination.lat},${destination.lng}&key=${DIRECTIONS_API_KEY}`;
-            
-            fetch(reqURL).then(response => {
-                return response.json();
-            }).then(jsonData => {
-                dist = jsonData.routes[0].legs[0].distance.value;
-                console.log(dist);
+
+            async function getDist() {
+                const json = await fetch(reqURL).then(response => {
+                    return response.json();
+                });
+                dist = json.routes[0].legs[0].distance.value;
                 return dist;
-            });
+            }
+
+            return getDist();
         }
     }
 }
