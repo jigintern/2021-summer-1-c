@@ -30,7 +30,7 @@ class MyServer extends Server{
             //指定されたIDのinformation.jsonを返す
             //call:("/api/info",ID),return:{ID,info[]}
             console.log("call info");
-            console.log(info)
+            //console.log(info)
             for(const d of info){
                 if(d.ID==req){
                     return d;
