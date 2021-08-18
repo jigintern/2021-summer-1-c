@@ -62,7 +62,7 @@ class MyServer extends Server{
             fetch(reqURL).then(response => {
                 return response.json();
             }).then(jsonData => {
-                dist = jsonData.routes[0].legs[0].distance.value;
+                dist = await jsonData.routes[0].legs[0].distance.value;
                 console.log(dist);
                 return dist;
             });
