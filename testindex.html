@@ -2,6 +2,8 @@
 ID:<input type =text id=num><br>
 <button id=loca>location get</button>
 <button id=info>infomation get</button>
+<br>
+<button id=icon>icon all</button>
 
 
 <script type=module>
@@ -11,8 +13,13 @@ ID:<input type =text id=num><br>
         console.log(data);
         alert(data);
     }
-    info.onclick=async()=>{
+    info.onclick = async() => {
         const data=await fetchJSON("api/info",num.value);
+        console.log(data);
+        alert(data);
+    }
+    icon.onclick = async() => {
+        const data=await fetchJSON("api/icon");
         console.log(data);
         alert(data);
     }
