@@ -10,13 +10,12 @@ const DIRECTIONS_API_URL = 'https://maps.googleapis.com/maps/api/directions/json
 const DIRECTIONS_API_KEY = 'AIzaSyBiAGQru246aR7Ht9TuJK0id87_q-spITU';
 
 let loca=jsonfs.read(locafn)||[];
-let info=jsonfs.read(infofn)||[];
+let info=jsonfs.read(locafn)||[];
 let icon=jsonfs.read(iconfn)||[];
 let udata=jsonfs.read(udatafn)||[];
 
 class MyServer extends Server{
     api(path,req){
-        
         if(path=="/api/loca"){
             //指定されたIDのlocation.jsonを返す
             //call:("/api/add",ID),return:{ID,name,lat,lng}
@@ -28,7 +27,7 @@ class MyServer extends Server{
             }
             return "warning";
         }else if(path=="/api/info"){
-            //指定されたIDのinfomation.jsonを返す
+            //指定されたIDのinformation.jsonを返す
             //call:("/api/info",ID),return:{ID,info[]}
             console.log("call info");
             for(const d of info){
