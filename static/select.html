@@ -12,7 +12,24 @@
     </head>
     <body>
         <header>
-
+            <div id="top">
+                <a href="index.html"><h1>タイトル</h1></a>
+                <nav>
+                    <div class="inner">
+                     <ul>
+                        <li><a href="index.html">トップページ</a></li>
+                        <li><a href="select.html">目的地選択</a></li>
+                        <li><a href="">掲示板</a></li>
+                      </ul>
+                    </div>
+                </nav>
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div id="mask"></div>
+            </div>
         </header>
         <main>
             <h2>目的地を選んでください</h2>
@@ -36,5 +53,26 @@
                 
             </div>
         </main>
+        <script type="text/javascript">
+            (function($) {
+                
+                const $nav   = $('#top');
+                const $btn   = $('.menu');
+                const $mask  = $('#mask');
+                const open   = 'open';
+
+                $btn.on( 'click', function() {
+                    if ( ! $nav.hasClass( open ) ) {
+                        $nav.addClass( open );
+                    } else {
+                        $nav.removeClass( open );
+                    }
+                });
+
+                $mask.on('click', function() {
+                    $nav.removeClass( open );
+                });
+            } )(jQuery);
+        </script>
     </body>
 </html>
