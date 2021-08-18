@@ -15,13 +15,13 @@ let icon=jsonfs.read(iconfn)||[];
 let udata=jsonfs.read(udatafn)||[];
 
 class MyServer extends Server{
-    api(path,reqID){
+    api(path,req){
         
         if(path=="/api/loca"){
             //指定されたIDのlocation.jsonを返す
             //call:("/api/add",ID),return:{ID,name,lat,lng}
             for(const d of loca){
-                if(d.ID==reqID){
+                if(d.ID==req){
                     return d;
                 }
             }
@@ -30,7 +30,7 @@ class MyServer extends Server{
             //指定されたIDのinfomation.jsonを返す
             //call:("/api/info",ID),return:{ID,info[]}
             for(const d of info){
-                if(d.ID==reqID){
+                if(d.ID==req){
                     return d;
                 }
             }
@@ -55,14 +55,14 @@ class MyServer extends Server{
         } else if (path == "/api/dist") {
             //距離を求める
             let dist = 0;
-            const origin = reqID.origin;
-            const destination = reqID.destination;
+            const origin = req.origin;
+            const destination = req.destination;
             const reqURL = `${DIRECTIONS_API_URL}origin=${origin.lat},${origin.lng}&destination=${destination.lat},${destination.lng}&key=${DIRECTIONS_API_KEY}`;
             
             fetch(reqURL).then(response => {
                 return response.json();
             }).then(jsonData => {
-                dist = await jsonData.routes[0].legs[0].distance.value;
+                dist = jsonData.routes[0].legs[0].distance.value;
                 console.log(dist);
                 return dist;
             });
