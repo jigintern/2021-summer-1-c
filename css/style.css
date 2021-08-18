@@ -3,22 +3,27 @@
 html {
     font-size: 100%;
 }
+
 body {
     font-family: "Century Gothic",sans-serif;
     color: #24292e;
 }
+
 .wrapper {
     margin: 0 auto 130px auto;
     font-size: 0.9rem;
     padding: 0 4%;
     max-width: 600px;
 }
+
 .content {
     padding-top: 60px;
 }
+
 /*-------------------------------------------
 ヘッダー
 -------------------------------------------*/
+
 .header {
     text-decoration: none;
     z-index: 9999;
@@ -67,3 +72,4 @@ body {
     box-shadow: none;
     text-shadow: none;
 }
+

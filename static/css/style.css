@@ -85,3 +85,8 @@ main {
     box-shadow: none;
     text-shadow: none;
 }
+
+.change img{
+    width:10%;
+    height:10%;
+}

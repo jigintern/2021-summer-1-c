@@ -15,7 +15,7 @@
             <header id="header">
                 <h1 class="site-title">
                     <!-- <a href="">Team-C作品</a> -->
-                    Team-C作品
+                    <a href="home.html">Team-C作品</a>
                 </h1>
             </header>    
         </div>
@@ -26,7 +26,10 @@
                 </div>
                 <div class="content">
                     <p>地図上をクリックして自分で見つけたお気に入りの場所にマークを付けることができます</p><br>
-                    <p>赤ピン＝目的地、星マーク＝お気に入り、矢印＝あなたの現在地</p>
+                    <p>赤ピン＝目的地、星マーク＝お気に入り、矢印＝あなたの現在地</p><br>
+                    <p>色々なマーカーの下にあるボタンを押すと星以外のマーカーを置くこともできます</p><br>
+                    <p>目的地以外のマーカーは「マーカーを削除」を押した後にマーカーをクリックすると消すことができます</p>
+
                 </div>
             </section>
             <section id="mymap" class="wrapper">
@@ -39,7 +42,16 @@
                     <!--Google Maps API KEY = AIzaSyB253fu1pMzWUess1PmousKQx6apQCR0Jc-->    
                 </div>
                 <div class="delete">
-                    <a href="#" class="btn" onclick=onClick()>マーカーを削除</a>
+                    <a href="#mymap" class="btn" onclick="onClick()">マーカーを削除</a>
+                </div>
+                <div class="change">
+                    <h2>色々なマーカー</h2>
+                    <div id="change-img">
+                        <li><a href="#mymap" class="btn" onclick="changeImg1()">飲食店</a></li>
+                        <li><a href="#mymap" class="btn" onclick="changeImg2()">自動販売機</a></li>
+                        <li><a href="#mymap" class="btn" onclick="changeImg3()">神社</a></li>
+                        <li><a href="#mymap" class="btn" onclick="changeImg4()">山</a></li>
+                    </div>
                 </div>
                 <div id="information" class="wrapper">
                 </div>

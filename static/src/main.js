@@ -1,6 +1,6 @@
 'use strict';
 var flag = false;
-
+var i=0;
 function initMap(){
     if (typeof(navigator.geolocation) != 'undefined') {
         navigator.geolocation.watchPosition(success, error);
@@ -75,36 +75,95 @@ function success(position){
         var maxlng = targetlng;
         var minlng = lng;
     }
+
     var sw = new google.maps.LatLng(maxlat,minlng);
     var ne = new google.maps.LatLng(minlat,maxlng);
     var bounds = new google.maps.LatLngBounds(sw, ne);
     map.fitBounds(bounds,5);
     google.maps.event.addListener(map, 'click', event => clickListener(event, map));
-    
+
+
     function clickListener(event, map) {
         let text = prompt('説明を入力して下さい','例:jig.jp');
         let lat = event.latLng.lat();
         let lng = event.latLng.lng();
-        
-        var Marker = new google.maps.Marker({
-            position: {lat, lng},
-            map:map,
-            icon:{
-                url:'./img/star.png',
-                scaledSize: new google.maps.Size(35,35)
+        if(text!=null){
+            if(i==0){
+                var Marker = new google.maps.Marker({
+                    position: {lat, lng},
+                    map:map,
+                    icon:{
+                        url: './img/star.png',
+                        scaledSize: new google.maps.Size(35,35)
+                    }
+                });    
+                var infoWindow = new google.maps.InfoWindow({
+                    content: text
+                });
+            }else if(i==1){
+                var Marker = new google.maps.Marker({
+                    position: {lat, lng},
+                    map:map,
+                    icon:{
+                        url: './img/food.png',
+                        scaledSize: new google.maps.Size(35,35)
+                    }
+                });    
+                var infoWindow = new google.maps.InfoWindow({
+                    content: text
+                });
+                i=0;
+            }else if(i==2){
+                var Marker = new google.maps.Marker({
+                    position: {lat, lng},
+                    map:map,
+                    icon:{
+                        url: './img/can.png',
+                        scaledSize: new google.maps.Size(35,35)
+                    }
+                });    
+                var infoWindow = new google.maps.InfoWindow({
+                    content: text
+                });
+                i=0;
+            }else if(i==3){
+                var Marker = new google.maps.Marker({
+                    position: {lat, lng},
+                    map:map,
+                    icon:{
+                        url: './img/jinja.png',
+                        scaledSize: new google.maps.Size(35,35)
+                    }
+                });    
+                var infoWindow = new google.maps.InfoWindow({
+                    content: text
+                });
+                i=0;
+            }else if(i==4){
+                var Marker = new google.maps.Marker({
+                    position: {lat, lng},
+                    map:map,
+                    icon:{
+                        url: './img/yama.png',
+                        scaledSize: new google.maps.Size(35,35)
+                    }
+                });    
+                var infoWindow = new google.maps.InfoWindow({
+                    content: text
+                });
+                i=0;
             }
-        });
-        var infoWindow = new google.maps.InfoWindow({
-            content: text + '<br>' + '<a href="" onclick="changeImg()">画像を変更する</a>'
-        });
-        google.maps.event.addListener(Marker, 'click', function() {
-            if(flag==false){
-                infoWindow.open(map,Marker);
-            }else{
-                Marker.setMap(null);
-                flag = false;    
-            }
-        });
+            google.maps.event.addListener(Marker, 'click', function() {
+                if(flag==false){
+                    infoWindow.open(map,Marker);
+                }else{
+                    Marker.setMap(null);
+                    flag = false;
+                }                  
+            });    
+        }else{
+            return;
+        }
     }    
 }
 function error(e){
@@ -116,6 +175,19 @@ function onClick(){
     flag = true;
 }
 
-function changeImg(){
-
+function changeImg1(){
+    alert('マーカーを置きたい場所を選択してください');
+    i = 1;   
+}
+function changeImg2(){
+    alert('マーカーを置きたい場所を選択してください');
+    i = 2;   
+}
+function changeImg3(){
+    alert('マーカーを置きたい場所を選択してください');
+    i = 3;   
+}
+function changeImg4(){
+    alert('マーカーを置きたい場所を選択してください');
+    i = 4;
 }
