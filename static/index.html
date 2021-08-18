@@ -11,14 +11,31 @@
         <script type= "text/javascript" src="src/main.js"></script>
     </head>
     <body>
-        <header>
-
+        <header>       
+            <div id="top">
+                <a href="index.html"><h1>タイトル</h1></a>
+                <nav>
+                    <div class="inner">
+                     <ul>
+                        <li><a href="index.html">トップページ</a></li>
+                        <li><a href="select.html">目的地選択</a></li>
+                        <li><a href="">掲示板</a></li>
+                      </ul>
+                    </div>
+                </nav>
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div id="mask"></div>
+            </div>
         </header>
         <main>
             <div class="top">
                 <img src="img/home.jpg" alt="" >
                 <h3>キャッチコピー</h3>
-                <a href="select.html"><p class="btn">目的地を選ぶ</p></a>
+                <a href="select.html"><p class="btn">目的地を選ぶ⇒</p></a>
             </div>
 
             <div class="about">
@@ -50,7 +67,7 @@
             <div class="board">
                 <h2>掲示板で自分の旅路を共有</h2>
                 <p>掲示板を覗いてみましょう</p>
-                <a href="select.html"><p class="btn">掲示板へ</p></a>
+                <a href="select.html"><p class="btn">掲示板へ行く</p></a>
             </div>
 
             <div class="sns">
@@ -62,5 +79,26 @@
             </footer>
 
         </main>
+        <script type="text/javascript">
+            (function($) {
+                
+                const $nav   = $('#top');
+                const $btn   = $('.menu');
+                const $mask  = $('#mask');
+                const open   = 'open';
+
+                $btn.on( 'click', function() {
+                    if ( ! $nav.hasClass( open ) ) {
+                        $nav.addClass( open );
+                    } else {
+                        $nav.removeClass( open );
+                    }
+                });
+
+                $mask.on('click', function() {
+                    $nav.removeClass( open );
+                });
+            } )(jQuery);
+        </script>
     </body>
 </html>
