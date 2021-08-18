@@ -63,6 +63,8 @@ const deleteCookie = name => {
 /* サーバ通信 */
 const getTravelData = async travelID => {
     const data = await fetchJSON(`api/get?${travelID}`);
+
+    if (data == 'warning') alert('データが違います');
     
     console.log(data);
 }
