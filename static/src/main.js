@@ -1,8 +1,12 @@
+'use strict';
+var flag = false;
+
 function initMap(){
     if (typeof(navigator.geolocation) != 'undefined') {
         navigator.geolocation.watchPosition(success, error);
     }
 }
+
 function success(position){
     var targetlat = 35.94292;
     var targetlng = 136.186513;
@@ -37,6 +41,7 @@ function success(position){
     var infoWindow = new google.maps.InfoWindow({
 		content: 'めがね会館'
 	});
+
 	google.maps.event.addListener(TargetMarker, 'click', function() {
 		infoWindow.open(map,TargetMarker);
 	});
@@ -54,7 +59,6 @@ function success(position){
             strokeWeight: 2 
         }
     });
-
 
     if(lat>targetlat){
         var maxlat = lat;
@@ -81,20 +85,37 @@ function success(position){
         let text = prompt('説明を入力して下さい','例:jig.jp');
         let lat = event.latLng.lat();
         let lng = event.latLng.lng();
-        let Marker = new google.maps.Marker({
-          position: {lat, lng},
-          map:map,
+        
+        var Marker = new google.maps.Marker({
+            position: {lat, lng},
+            map:map,
+            icon:{
+                url:'./img/star.png',
+                scaledSize: new google.maps.Size(35,35)
+            }
         });
         var infoWindow = new google.maps.InfoWindow({
-            content: text
+            content: text + '<br>' + '<a href="" onclick="changeImg()">画像を変更する</a>'
         });
         google.maps.event.addListener(Marker, 'click', function() {
-		    infoWindow.open(map,Marker);
-	    });
+            if(flag==false){
+                infoWindow.open(map,Marker);
+            }else{
+                Marker.setMap(null);
+                flag = false;    
+            }
+        });
     }    
 }
 function error(e){
     alert("エラーが発生しました - " + e.message);
 }
 
+function onClick(){
+    alert('削除するマーカーを選択してください');
+    flag = true;
+}
 
+function changeImg(){
+
+}
