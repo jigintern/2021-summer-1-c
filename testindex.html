@@ -2,8 +2,10 @@
 ID:<input type =text id=num><br>
 <button id=loca>location get</button>
 <button id=info>infomation get</button>
+<button id=add>add data</button>
 <br>
 <button id=icon>icon all</button>
+<br>
 
 
 <script type=module>
@@ -22,5 +24,14 @@ ID:<input type =text id=num><br>
         const data=await fetchJSON("api/icon");
         console.log(data);
         alert(data);
+    }
+    add.onclick=async()=>{
+        const data={"type":"icon","iconID":"none","lat":0,"lng":0};
+        const item={"travelID":num.value,"data":data};
+        const ret=await fetchJSON("/api/add",item);
+        if(ret.match(/push ok/)){
+            console.log("push ok");
+            window.location.reload();
+        }
     }
 </script>
