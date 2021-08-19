@@ -7,8 +7,10 @@
         <!--<link rel="shortcut icon" href="img/site-icon.png">-->
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
         <link rel="stylesheet" href="css/style.css">
-
+        <link rel="stylesheet" href="css/title_style.css">
         <!-- ▼ JavaScript ▼ -->
+        <script type= "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script type="text/javascript" src="src/fetchJSON.js"></script>
         <script type="text/javascript" src="src/reload.js"></script>
         <script type="text/javascript" src="src/main.js"></script>
@@ -20,11 +22,26 @@
     </head>
     <body>
         <div class="header">
-            <header id="header">
-                <h1 class="site-title">
-                    <a href="index.html">Team-C作品</a>
-                </h1>
-            </header>    
+            <header>       
+                <div id="top">
+                    <a href="index.html"><h1>タイトル</h1></a>
+                    <nav>
+                        <div class="inner">
+                         <ul>
+                            <li><a href="index.html">トップページ</a></li>
+                            <li><a href="select.html">目的地選択</a></li>
+                            <li><a href="share.html">掲示板</a></li>
+                          </ul>
+                        </div>
+                    </nav>
+                    <div class="menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div id="mask"></div>
+                </div>
+            </header>  
         </div>
         <main>
             <section id="explain" class="wrapper">
