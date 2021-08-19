@@ -23,9 +23,11 @@
     </head>
     <body>
         <div class="header">
-            <header>       
-                <div id="top">
-                    <a href="index.html"><h1>Marking!</h1></a>
+            <header class="header">       
+                <div id="header">
+                    <h1 class="site-title">
+                        <a href="index.html"><img src="img/logo.png"></a>
+                    </h1>
                     <nav>
                         <div class="inner">
                          <ul>
@@ -44,7 +46,7 @@
                 </div>
                 <script type="text/javascript">
                     (function($) {      　//メニュー         
-                        const $nav   = $('#top');
+                        const $nav   = $('#header');
                         const $btn   = $('.menu');
                         const $mask  = $('#mask');
                         const open   = 'open';
@@ -88,15 +90,15 @@
                     <!--Google Maps API KEY = AIzaSyB253fu1pMzWUess1PmousKQx6apQCR0Jc-->    
                 </div>
                 <div class="delete">
-                    <a href="#mymap" class="btn" onclick="onClick()">マーカーを削除</a>
+                    <a href="#mymap" class="map-btn" onclick="onClick()">マーカーを削除</a>
                 </div>
                 <div class="change">
                     <h2>色々なマーカー</h2>
                     <div id="change-img">
-                        <li><a href="#mymap" class="btn" onclick="changeImg(1)">飲食店</a></li>
-                        <li><a href="#mymap" class="btn" onclick="changeImg(2)">自動販売機</a></li>
-                        <li><a href="#mymap" class="btn" onclick="changeImg(3)">神社</a></li>
-                        <li><a href="#mymap" class="btn" onclick="changeImg(4)">山</a></li>
+                        <li><a href="#mymap" class="map-btn" onclick="changeImg(1)">飲食店</a></li>
+                        <li><a href="#mymap" class="map-btn" onclick="changeImg(2)">自動販売機</a></li>
+                        <li><a href="#mymap" class="map-btn" onclick="changeImg(3)">神社</a></li>
+                        <li><a href="#mymap" class="map-btn" onclick="changeImg(4)">山</a></li>
                     </div>
                 </div>
                 <div id="information" class="wrapper">

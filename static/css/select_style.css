@@ -1,9 +1,19 @@
-body{width: 100%;}
+@charset "UTF-8";
 
-h2{
-    text-align: center;
-    margin: 20px auto;
+html {
+  font-size: 100%;
 }
+
+body {
+  font-family: "Century Gothic",sans-serif;
+  color:#24292e;
+}
+
+/* h2{
+  margin: 60px auto;
+  border: 1px solid #000;
+  border-width: 0 0 1px 7px;
+} */
 
 .icon {
     display: flex;
@@ -23,3 +33,28 @@ div > img{
     border-radius: 8px;
 }
 
+/*
+ヘッダー
+*/
+.header {
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
+  }
+  
+  #header {
+    max-width: 960px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    margin: 0 auto;
+  }
+  
+  #header img {
+    width: 200px;
+    margin: auto;
+  }

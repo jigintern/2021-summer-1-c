@@ -8,13 +8,19 @@
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
         <link rel="stylesheet" href="css/select_style.css">
         <link rel="stylesheet" href="css/title_style.css">
+        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
         <script type= "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script type= "text/javascript" src="src/main.js"></script>
+        <script type= "module" src="src/reload.js"></script>
     </head>
     <body>
-        <header>
-            <div id="top">
-                <a href="index.html"><h1>タイトル</h1></a>
+        <header class="header">       
+            <div id="header">
+                <h1 class="site-title">
+                    <a href="index.html"><img src="img/logo.png"></a>
+                </h1>
                 <nav>
                     <div class="inner">
                      <ul>
@@ -54,9 +60,8 @@
             </div>
         </main>
         <script type="text/javascript">
-            (function($) {
-                
-                const $nav   = $('#top');
+            (function($) {      　//メニュー         
+                const $nav   = $('#header');
                 const $btn   = $('.menu');
                 const $mask  = $('#mask');
                 const open   = 'open';

@@ -29,26 +29,55 @@ section {
 /*-------------------------------------------
 ヘッダー
 -------------------------------------------*/
+/*
+ヘッダー
+*/
 .header {
-    text-decoration: none;
     z-index: 9999;
-    background-color: #fff;
     position: fixed;
     width: 100%;
     box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
     -webkit-box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
     -moz-box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
-}
-
-#header {
+  }
+  
+  #header {
     max-width: 960px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 40px;
+    height: 60px;
     margin: 0 auto;
-    padding: 0 4%;
-}
+  }
+  
+  #header img {
+    width: 200px;
+    margin: auto;
+  }
+  /*メインビジュアル*/
+  #mainvisual img {
+    position: relative;
+    width: 100%;
+  }
+  
+  #mainvisual h3{
+    position: absolute; 
+    left: 10%; 
+    top: 50%; 
+    font-size: 20px;
+    color: white;  
+    backdrop-filter: blur(12px);
+  }
+  
+  .btn{
+    position: absolute;
+    right:7%;
+    bottom: 20%; 
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    cursor: pointer;
+  }
 
 /*-------------------------------------------
 コンテンツ
@@ -71,7 +100,7 @@ main {
 マーカーアイコン
 -------------------------------------------*/
 
-.btn {
+.map-btn {
     position: relative;
     display: inline-block;
     padding: 0.25em 0.5em;
