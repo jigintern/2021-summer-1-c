@@ -15,6 +15,8 @@ function success(position){
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
     var latlng = new google.maps.LatLng(lat,lng);
+    
+    const dist = getDist(lat, lng, targetlat, targetlng); // 現在地と目的地との距離を取得
 
     var map = new google.maps.Map(document.getElementById('map'),{
         center: latlng,

@@ -1,8 +1,5 @@
 /* 旅初期化 */
 const initTravel = () => {
-
-    initMap(); // マップ初期化
-
     const cookieArray = getCookieArray();
     console.log(cookieArray);
 
