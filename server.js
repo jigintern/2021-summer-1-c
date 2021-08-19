@@ -103,8 +103,8 @@ class MyServer extends Server{
         } else if (path == "/api/iget"){
             //アイコンの情報のみを返却
             //call:("/add/iget",travelID),return:[{srt,comment,lat,lng}, ...]
-            const icon = await fetchJSON("api/icon");
-            const data = await fetchJSON("api/get",travelID);
+            const icon = async() => await fetchJSON("api/icon");
+            const data = async() => await fetchJSON("api/get",travelID);
 
             let item=[];
             for(const d in data){

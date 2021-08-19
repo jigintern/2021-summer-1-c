@@ -188,7 +188,7 @@ function changeImg(num){
 
 function change_map(num){
     alert(num)
-    //sessionStorage.setItem("ID",num);
+    sessionStorage.setItem("ID", num);
 }
 
 function add_Marker(iconID,position,comment){
