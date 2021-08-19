@@ -71,7 +71,7 @@ const getTravelData = async travelID => {
 
     if (data == 'warning') alert('データが違います'); // 削除予定
     
-    console.log(data);
+    return data;
 }
 
 initTravel();
