@@ -17,7 +17,8 @@ const initTravel = () => {
             // createCookie('travelID', hash, 7); // Cookie作成
             createCookie('travelID', 19216800, 7); // 仮のデータ
         });
-        await fetchJSON("api/uadd",cookieArray.travelID);
+        fetchJSON("api/uadd",cookieArray.travelID);
+
     }
 }
 
