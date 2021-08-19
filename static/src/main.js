@@ -171,6 +171,7 @@ function success(position){
         }
     }    
 }
+
 function error(e){
     alert("エラーが発生しました - " + e.message);
 }
@@ -187,16 +188,16 @@ function changeImg(num){
 
 function change_map(num){
     alert(num)
-    sessionStorage.setItem("ID",num);
+    //sessionStorage.setItem("ID",num);
 }
 
 function add_Marker(iconID,position,comment){
-    let TravelID=cookieArray.travelID;
+    let travelID=cookieArray.travelID;
     let lat = position[0];
     let lng = position[1];
     let item={"travelID":travelID,data:{"type":"icon","iconID":iconID,"comment":comment,"lat":lat,"lng":lng}}
 
-    let ret=await fetchJSON("api/add",item);
+    let ret=fetchJSON("api/add",item);
     if(ret.match(/push ok/)){
         console.log("push ok");
         //window.location.reload();
