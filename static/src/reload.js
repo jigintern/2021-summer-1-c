@@ -1,9 +1,10 @@
-'use strict';
-
 import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
 
 /* 旅初期化 */
 const initTravel = () => {
+
+    initMap(); // マップ初期化
+
     const cookieArray = getCookieArray();
     console.log(cookieArray);
 
@@ -15,8 +16,11 @@ const initTravel = () => {
         const date = new Date();
         const destination = '眼鏡会館';
 
+        alert('データを作成しました'); // 削除予定
+
         sha256(`${date}${destination}`).then(hash => {
-            createCookie('travelID', hash, 7);
+            // createCookie('travelID', hash, 7); // Cookie作成
+            createCookie('travelID', 19216800, 7); // 仮のデータ
         });
     }
 }
@@ -64,9 +68,9 @@ const deleteCookie = name => {
 const getTravelData = async travelID => {
     const data = await fetchJSON(`api/get?${travelID}`);
 
-    if (data == 'warning') alert('データが違います');
+    if (data == 'warning') alert('データが違います'); // 削除予定
     
     console.log(data);
 }
 
-initTravel(); // 旅初期化
+initTravel();
