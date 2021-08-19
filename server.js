@@ -91,10 +91,14 @@ class MyServer extends Server{
 
             return getDist();
         } else if (path == "/api/badd") {
+            //掲示板に書き込む
+            //call:("/api/badd",data{未定}),return:"ok"
             board.push(req);
             jsonfs.write(datafn,data);
             return "ok";
         } else if (path == "/api/blist") {
+            //掲示板の内容を返却
+            //call:("/api/blist"),return:[data{未定}, ...]
             return board;
         }
     }

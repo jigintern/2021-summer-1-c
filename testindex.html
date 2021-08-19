@@ -3,6 +3,7 @@ ID:<input type =text id=num><br>
 <button id=loca>location get</button>
 <button id=info>infomation get</button>
 <button id=add>add data</button>
+<button id=get>get data</button>
 <br>
 <button id=icon>icon all</button>
 <br>
@@ -33,5 +34,11 @@ ID:<input type =text id=num><br>
             console.log("push ok");
             window.location.reload();
         }
+    }
+    get.onclick=asynce()=>{
+        const travelID=num.value;
+        const data=await fetchJSON("/api/get",travelID);
+        console.log(data);
+        alert(data);
     }
 </script>
