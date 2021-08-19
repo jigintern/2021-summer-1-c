@@ -16,9 +16,11 @@
         <script type= "module" src="src/reload.js"></script>
     </head>
     <body>
-        <header>       
-            <div id="top">
-                <a href="index.html"><h1>Marking!</h1></a>
+        <header class="header">       
+            <div id="header">
+                <h1 class="site-title">
+                    <a href="index.html"><img src="img/logo.png"></a>
+                </h1>
                 <nav>
                     <div class="inner">
                      <ul>
@@ -38,14 +40,14 @@
         </header>
 
         <main>
-            <div class="pc-top">
+            <div class="pc-header">
                 <ul class="slider">
                     <a href="select.html"><li><img src="img/home.jpg" alt=""></li></a>
                     <a href="share.html"><li><img src="img/board.jpg" alt=""></li></a>
                 </ul>
             </div>
             
-            <div class="top">
+            <div id="mainvisual">
                 <img src="img/home.jpg" alt="" >
                 <h3>キャッチコピー</h3>
                 <a href="select.html"><p class="btn">目的地を選ぶ⇒</p></a>
@@ -111,7 +113,7 @@
         </main>
         <script type="text/javascript">
             $('.slider').slick({ //トップの画像スライド
-                autoplay: true,
+                auheaderlay: true,
                 infinite: true,
                 speed: 500,
                 slidesToShow: 1,
@@ -123,7 +125,7 @@
                 dots: true,
             });
             (function($) {      　//メニュー         
-                const $nav   = $('#top');
+                const $nav   = $('#header');
                 const $btn   = $('.menu');
                 const $mask  = $('#mask');
                 const open   = 'open';

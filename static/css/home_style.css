@@ -1,41 +1,90 @@
-body{width: 100%;}
+@charset "UTF-8";
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Century Gothic",sans-serif;
+  color:#24292e;
+}
 
 h2{
   margin: 60px auto;
   border: 1px solid #000;
   border-width: 0 0 1px 7px;
-
 }
 
-.top{
-    position: relative;
+/*
+ヘッダー
+*/
+.header {
+  z-index: 9999;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
+  -webkit-box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
+  -moz-box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
 }
 
-.top img{
-    width: 100%;
-    padding: 0;
+#header {
+  max-width: 960px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  margin: 0 auto;
 }
 
+#header img {
+  width: 200px;
+  margin: auto;
+}
+/*メインビジュアル*/
+#mainvisual img {
+  position: relative;
+  width: 100%;
+}
+
+#mainvisual h3{
+  position: absolute; 
+  left: 10%; 
+  top: 50%; 
+  font-size: 20px;
+  color: white;  
+  backdrop-filter: blur(12px);
+}
+
+.btn{
+  position: absolute;
+  right:7%;
+  bottom: 20%; 
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  cursor: pointer;
+}
+/* スマホ */
 
 @media screen and (max-width: 600px) {
-  .pc-top{
+  .pc-header{
     display: none;
   }
 }
+
+/* PC */
+
 @media screen and (min-width: 600px) {
-  .top{
-    display: none;
-  }
   ul{
     margin:0;
     padding: 0;
     list-style: none;
   } 
-  .pc-top{
+  .pc-header{
     background-color: rgb(36, 37, 48);
   }
   .slider {
-    width:94%;
+    width:100%;
     margin:0 auto;
   }
   .slider img {
@@ -93,25 +142,6 @@ h2{
   }
 }
 
-.top h3{
-    position: absolute; 
-    left: 10%; 
-    top: 50%; 
-    font-size: 20px;
-    color: white;  
-    backdrop-filter: blur(12px);
-}
-
-.btn{
-    position: absolute;
-    right:7%;
-    bottom: 10%; 
-    font-size: 20px;
-    color: rgb(255, 255, 255);
-    padding: 10px;
-    cursor: pointer;
-}
-
 .icon {
     display: flex;
     flex-wrap: wrap;
@@ -120,7 +150,6 @@ h2{
 
 div > img{
     width: 150px;
-    padding: 20px 10px;
 }
 
 .icon > a{
@@ -144,6 +173,7 @@ div > img{
     margin-top: 14px;
 }
 
+/*SNS*/
 .sns{
     height: 200px;
 }
