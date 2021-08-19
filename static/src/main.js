@@ -196,7 +196,7 @@ function add_Marker(iconID,position,comment){
     let lng = position[1];
     let item={"travelID":travelID,data:{"type":"icon","iconID":iconID,"comment":comment,"lat":lat,"lng":lng}}
 
-    let ret=await fetchJSON("api/add",item);
+    let ret=/*await*/ fetchJSON("api/add",item); // await があると地図が表示されない
     if(ret.match(/push ok/)){
         console.log("push ok");
         //window.location.reload();
