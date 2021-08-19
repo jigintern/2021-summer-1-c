@@ -6,13 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<link rel="shortcut icon" href="img/site-icon.png">-->
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-        <link rel="stylesheet" href="css/select_style.css">
+        <link rel="stylesheet" href="css/home_style.css">
         <link rel="stylesheet" href="css/title_style.css">
         <script type= "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type= "text/javascript" src="src/main.js"></script>
     </head>
     <body>
-        <header>
+        <header>       
             <div id="top">
                 <a href="index.html"><h1>タイトル</h1></a>
                 <nav>
@@ -20,7 +20,7 @@
                      <ul>
                         <li><a href="index.html">トップページ</a></li>
                         <li><a href="select.html">目的地選択</a></li>
-                        <li><a href="share.html">掲示板</a></li>
+                        <li><a href="">掲示板</a></li>
                       </ul>
                     </div>
                 </nav>
@@ -32,31 +32,20 @@
                 <div id="mask"></div>
             </div>
         </header>
+
         <main>
-            <h2>目的地を選んでください</h2>
-            <div class="icon">
-                <a href="map.html"><div class="icon1">                    
-                    <img src="icon/megane.png" alt="">
-                    <p>眼鏡会館</p>
-                </div></a>
-                <a href="map.html"><div class="icon2">
-                    <img src="icon/yama.png" alt="">
-                    <p>西山公園</p>
-                </div></a>
-                <a href="map.html"><div class="icon3">
-                    <img src="icon/panda.png" alt="">
-                    <p>西山動物園</p>
-                </div></a>
-                <a href="map.html"><div class="icon4">
-                    <img src="icon/work.png" alt="">
-                    <p>鯖江商工会議所</p>
-                </div></a>
-                
+            <h1>掲示板</h1>
+            <div id=container></div>
+            
+            <div class=writebox>
+                名前：<input type=text id=inp_name><br>
+                <textarea id=inp_body></textarea><br>
+                <button id=btn_write>書き込む</button>
             </div>
         </main>
-        <script type="text/javascript">
-            (function($) {
-                
+
+        <script>
+            (function($) {      　//メニュー         
                 const $nav   = $('#top');
                 const $btn   = $('.menu');
                 const $mask  = $('#mask');

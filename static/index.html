@@ -7,8 +7,11 @@
         <!--<link rel="shortcut icon" href="img/site-icon.png">-->
         <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
         <link rel="stylesheet" href="css/home_style.css">
+        <link rel="stylesheet" href="css/title_style.css">
         <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
         <script type= "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script type= "text/javascript" src="src/main.js"></script>
         <script type= "module" src="src/reload.js"></script>
     </head>
@@ -21,7 +24,7 @@
                      <ul>
                         <li><a href="index.html">トップページ</a></li>
                         <li><a href="select.html">目的地選択</a></li>
-                        <li><a href="">掲示板</a></li>
+                        <li><a href="share.html">掲示板</a></li>
                       </ul>
                     </div>
                 </nav>
@@ -33,7 +36,15 @@
                 <div id="mask"></div>
             </div>
         </header>
+
         <main>
+            <div class="pc-top">
+                <ul class="slider">
+                    <a href="select.html"><li><img src="img/home.jpg" alt=""></li></a>
+                    <a href="share.html"><li><img src="img/board.jpg" alt=""></li></a>
+                </ul>
+            </div>
+            
             <div class="top">
                 <img src="img/home.jpg" alt="" >
                 <h3>キャッチコピー</h3>
@@ -47,37 +58,29 @@
 
             <h2>目的地を選んで始めましょう</h2>
             <div class="icon">
-                <a href="map.html">
-                <div class="icon1">                    
+                
+                <a href="map.html"><div class="icon1">                    
                     <img src="icon/megane.png" alt="">
                     <p>眼鏡会館</p>
-                </div>
-                </a>
-                <a href="map.html">
-                <div class="icon2">
+                </div></a>
+                <a href="map.html"><div class="icon2">
                     <img src="icon/yama.png" alt="">
                     <p>西山公園</p>
-                </div>
-                </a>
-                <a href="map.html">
-                <div class="icon3">
+                </div></a>
+                <a href="map.html"><div class="icon3">
                     <img src="icon/panda.png" alt="">
                     <p>西山動物園</p>
-                </div>
-                </a>
-                <a href="map.html">
-                <div class="icon4">
+                </div></a>
+                <a href="map.html"><div class="icon4">
                     <img src="icon/work.png" alt="">
                     <p>鯖江商工会議所</p>
-                </div>
-                </a>                
+                </div></a>                
             </div>
-            <script type="text/javascript" src="src/icon.js"></script>
 
             <div class="board">
                 <h2>掲示板で自分の旅路を共有</h2>
                 <p>掲示板を覗いてみましょう</p>
-                <a href="select.html"><p class="btn">掲示板へ行く</p></a>
+                <a href="share.html"><p class="btn">掲示板へ行く</p></a>
             </div>
 
             <div class="sns">
@@ -100,14 +103,26 @@
                     </a>    
                 </div>
             </div>
+
             <footer>
                 <p>(c)</p>
             </footer>
 
         </main>
         <script type="text/javascript">
-            (function($) {
-                
+            $('.slider').slick({ //トップの画像スライド
+                autoplay: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                prevArrow: '<div class="slick-prev"></div>',
+                nextArrow: '<div class="slick-next"></div>',
+                centerMode: true,
+                variableWidth: true,
+                dots: true,
+            });
+            (function($) {      　//メニュー         
                 const $nav   = $('#top');
                 const $btn   = $('.menu');
                 const $mask  = $('#mask');
