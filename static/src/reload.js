@@ -1,5 +1,5 @@
 /* 旅初期化 */
-const initTravel = () => {
+const initTravel = async() => {
     const cookieArray = getCookieArray();
     console.log(cookieArray);
 
