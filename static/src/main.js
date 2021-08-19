@@ -178,3 +178,8 @@ function changeImg(num){
     alert('マーカーを置きたい場所を選択してください');
     i = num;   
 }
+
+function change_map(num){
+    alert(num)
+    sessionStorage.setItem("ID",num);
+}
