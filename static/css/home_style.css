@@ -33,30 +33,6 @@ body {
   border-width: 0 0 1px 7px;
 } */
 
-/*
-ヘッダー
-*/
-.header {
-  border-bottom: 2px solid rgba(120, 120, 120, 0.8);
-  z-index: 9999;
-  position: fixed;
-  width: 100%;
-  
-}
-
-#header {
-  max-width: 1920px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
-  margin: 0 auto;
-}
-
-#header img {
-  width: 200px;
-  margin: auto;
-}
 /*メインビジュアル*/
 #mainvisual {
   position: relative;

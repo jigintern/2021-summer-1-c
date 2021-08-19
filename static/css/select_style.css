@@ -1,19 +1,75 @@
 @charset "UTF-8";
 
 html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 100%;
 }
 
 body {
-  font-family: "Century Gothic",sans-serif;
-  color:#24292e;
+  color: #fff;
+  background-color: #000;
+  font-family: "Yu Mincho",sans-serif;
 }
 
-/* h2{
-  margin: 60px auto;
-  border: 1px solid #000;
-  border-width: 0 0 1px 7px;
-} */
+.section-title {
+  border-bottom: solid 2px #AEAEAE;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 25px;
+  padding-top: 100px;
+}
+
+
+.wrapper {
+  max-width: 960px;
+  padding: 0 16px;
+  margin: 0 auto 30px auto;
+}
+
+/*-------------------------------------------
+icon
+-------------------------------------------*/
+.Choices {
+  width: 200px;
+  border-top: 2px solid rgba(255, 255, 255, 0.75);
+  border-left: 2px solid rgba(255, 255, 255, 0.75);
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  margin: 10px;
+  overflow:hidden;
+}
+.Choices:hover{
+  border-top: 2px solid #ffee00d8;
+  border-left: 2px solid #ffee00d8;
+  border-right: 2px solid #ffee00d8;
+}
+
+.Choices img{
+  transition:1s all;
+}
+.Choices img:hover{
+  transform:scale(1.2,1.2);
+  transition:1s all;
+}
+
+.places {
+  width: 200px;
+  height: 30px;
+  background-color: #fff;
+  color: #000;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 1.1rem;
+}
+
+.icon1,
+.icon2,
+.icon3,
+.icon4{
+  color:#fff;
+  font-size: 0.9rem;
+  text-align: center;
+}
 
 .icon {
     display: flex;
@@ -23,7 +79,7 @@ body {
 
 
 div > img{
-    width: 150px;
+    width: 200px;
     padding: 20px 10px;
 }
 
@@ -32,29 +88,3 @@ div > img{
     margin: 20px 10px;
     border-radius: 8px;
 }
-
-/*
-ヘッダー
-*/
-.header {
-    z-index: 9999;
-    position: fixed;
-    width: 100%;
-    box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
-    -webkit-box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
-    -moz-box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
-  }
-  
-  #header {
-    max-width: 1920px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    margin: 0 auto;
-  }
-  
-  #header img {
-    width: 200px;
-    margin: auto;
-  }
