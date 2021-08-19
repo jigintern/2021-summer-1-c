@@ -58,8 +58,9 @@ function success(position){
                 let Marker = new google.maps.Marker({
                     map: map,
                     position: { lat: data[i].lat, lng: data[i].lng },
-                    icon:{
-                        url: './img/star.png',
+                    icon: {
+                        url: './img/star.png', // 削除予定
+                        // url: data[i].src,
                         scaledSize: new google.maps.Size(35,35)
                     }
                 });
