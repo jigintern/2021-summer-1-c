@@ -1,5 +1,3 @@
-import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
-
 /* 旅初期化 */
 const initTravel = () => {
 
