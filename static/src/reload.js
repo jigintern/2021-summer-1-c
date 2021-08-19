@@ -65,12 +65,23 @@ const deleteCookie = name => {
     document.cookie = `${name}=""; expires=` + date.toUTCString();
 }
 
-/* サーバ通信 */
+/* 旅行データを取得 */
 const getTravelData = async travelID => {
+    let iconID;
     const data = await fetchJSON(`api/get?${travelID}`);
+    const icon = await fetchJSON('api/icon');
 
     if (data == 'warning') alert('データが違います'); // 削除予定
     
+    for (const i in data.data) {
+        iconID = data.data[i].iconID;
+
+        if (iconID) {
+            data.data[i].name = icon[iconID].name
+            data.data[i].src =icon[iconID].src
+        }
+    }
+
     return data;
 }
 
