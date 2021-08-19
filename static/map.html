@@ -42,6 +42,26 @@
                     </div>
                     <div id="mask"></div>
                 </div>
+                <script type="text/javascript">
+                    (function($) {      　//メニュー         
+                        const $nav   = $('#top');
+                        const $btn   = $('.menu');
+                        const $mask  = $('#mask');
+                        const open   = 'open';
+
+                        $btn.on( 'click', function() {
+                            if ( ! $nav.hasClass( open ) ) {
+                                $nav.addClass( open );
+                            } else {
+                                $nav.removeClass( open );
+                            }
+                        });
+
+                        $mask.on('click', function() {
+                            $nav.removeClass( open );
+                        });
+                    } )(jQuery);
+                </script>
             </header>  
         </div>
         <main>
@@ -57,6 +77,7 @@
                     <p>目的地以外のマーカーは「マーカーを削除」を押した後にマーカーをクリックすると消すことができます</p>
                 </div>
             </section>
+              
             <section id="mymap" class="wrapper">
                 <div class="section-title">
                     <h2>地図</h2>

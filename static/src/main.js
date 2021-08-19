@@ -1,6 +1,5 @@
 'use strict';
 var flag = false;
-var i=0;
 function initMap(){
     if (typeof(navigator.geolocation) != 'undefined') {
         navigator.geolocation.watchPosition(success, error);
