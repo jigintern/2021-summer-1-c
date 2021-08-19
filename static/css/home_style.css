@@ -75,6 +75,9 @@ h2{
 /* PC */
 
 @media screen and (min-width: 600px) {
+  #mainvisual {
+    display: none;
+  }
   ul{
     margin:0;
     padding: 0;
