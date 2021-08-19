@@ -2,37 +2,37 @@
   {
     "iconID":0,
     "name":"星",
-    "src":"static/img/star.png",
+    "src":"./img/star.png",
     "memo":"マップ用"
   },
   {
     "iconID":1,
     "name":"飲食店",
-    "src":"static/img/food.png",
+    "src":"./img/food.png",
     "memo":"マップ用"
   },
   {
     "iconID":2,
     "name":"自動販売機",
-    "src":"static/img/can.png",
+    "src":"./img/can.png",
     "memo":"マップ用"
   },
   {
     "iconID":3,
     "name":"神社",
-    "src":"static/img/jinja.png",
+    "src":"./img/jinja.png",
     "memo":"マップ用"
   },
   {
     "iconID":4,
     "name":"山",
-    "src":"static/img/yama.png",
+    "src":"./img/yama.png",
     "memo":"マップ用"
   },
   {
     "iconID":5,
     "name":"寺",
-    "src":"static/img/temple.png",
+    "src":"./img/temple.png",
     "memo":"マップ用、現在未使用"
   }
 ]
