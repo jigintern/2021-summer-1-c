@@ -203,6 +203,39 @@ div > img{
 .sns{
     height: 200px;
 }
+/*
+Twitter
+*/
+.btn-social-icon-twitter {
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  color: #1da1f3;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.btn-social-icon-twitter:hover {
+  color:#88daff;
+  transition: .5s;
+}
+
+.btn-social-icon-twitter__square {
+  border-radius: 10px;
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  font-size: 35px;
+  line-height: 50px;
+  color: #FFF;
+  background: #1da1f3;
+}
+
+.btn-social-icon-twitter__square i {
+  line-height: 50px;
+}
+
 
 footer{
 	background-color: gray;
