@@ -59,31 +59,13 @@ body {
 }
 /*メインビジュアル*/
 #mainvisual {
+  position: relative;
   padding-top: 40px;
   padding-bottom: 60px;
 }
+
 #mainvisual img {
-  position: relative;
   width: 100%;
-}
-
-#mainvisual h3{
-  position: absolute; 
-  left: 10%; 
-  top: 50%; 
-  font-size: 20px;
-  color: white;  
-  backdrop-filter: blur(12px);
-}
-
-#mainvisual .btn{
-  position: static;
-  right:7%;
-  bottom: 20%; 
-  font-size: 20px;
-  color: rgb(255, 255, 255);
-  padding: 10px;
-  cursor: pointer;
 }
 
 /*About*/
@@ -177,10 +159,11 @@ body {
 .phrase{
     display: none;
     position: absolute; 
-    left: 15%; 
-    top: 50%; 
-    font-size: 20px;
-    color: white;  
+    left: 10%; 
+    top: 50%;
+    font-weight: bold;
+    font-size: 2rem;
+    color: white;
 }
 
 .icon {
