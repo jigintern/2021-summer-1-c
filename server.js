@@ -100,6 +100,25 @@ class MyServer extends Server{
             }
 
             return getDist();
+        } else if (path == "/api/iget"){
+            //アイコンの情報のみを返却
+            //call:("/add/iget",travelID),return:[{srt,comment,lat,lng}, ...]
+            const icon = async() => await fetchJSON("api/icon");
+            const data = async() => await fetchJSON("api/get",travelID);
+
+            let item=[];
+            for(const d in data){
+                if(data[d].type=="icon"){
+                    const e=0;
+                    while(1){
+                        if(data[d].iconID==icon[e].iconID) break;
+                        e++;
+                    }
+                    item.push({"str":icon[e].str,"comment":data[d].comment,"lat":data[d].lat,"lng":data[d].lng});
+                }
+             }
+             console.log(item);
+             return item;
         } else if (path == "/api/badd") {
             //掲示板に書き込む
             //call:("/api/badd",data{未定}),return:"ok"

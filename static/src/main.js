@@ -46,7 +46,40 @@ function success(position){
 
 	google.maps.event.addListener(TargetMarker, 'click', function() {
 		infoWindow.open(map,TargetMarker);
-	});
+    });
+    
+    /* マーカーがある場合は追加 */
+    const initMarker = async () => {
+        const { data } = await getTravelData(19216800);
+
+        for (const i in data) {
+            if (data[i].iconID) {
+                console.log(data[i]);
+                let Marker = new google.maps.Marker({
+                    map: map,
+                    position: { lat: data[i].lat, lng: data[i].lng },
+                    icon:{
+                        url: './img/star.png',
+                        scaledSize: new google.maps.Size(35,35)
+                    }
+                });
+                let infoWindow = new google.maps.InfoWindow({
+                    content: "data[i].text" // 削除予定
+                    // content: data[i].text
+                });
+                google.maps.event.addListener(Marker, 'click', function() {
+                    if(flag==false){
+                        infoWindow.open(map,Marker);
+                    }else{
+                        Marker.setMap(null);
+                        flag = false;
+                    }                  
+                });    
+            }
+        }
+    }
+
+    initMarker();
 
     var Marker = new google.maps.Marker({
         map: map,
@@ -89,6 +122,7 @@ function success(position){
         let text = prompt('説明を入力して下さい','例:jig.jp');
         let lat = event.latLng.lat();
         let lng = event.latLng.lng();
+        let posi = [lat,lng];
         if(text!=null){
             switch (i){
                 case 0:
@@ -151,6 +185,9 @@ function success(position){
                     break;
 
             }
+
+            add_Marker(i,posi,text);
+
             var infoWindow = new google.maps.InfoWindow({
                 content: text
             });
@@ -167,6 +204,7 @@ function success(position){
         }
     }    
 }
+
 function error(e){
     alert("エラーが発生しました - " + e.message);
 }
@@ -183,5 +221,18 @@ function changeImg(num){
 
 function change_map(num){
     alert(num)
-    sessionStorage.setItem("ID",num);
+    sessionStorage.setItem("ID", num);
+}
+
+async function add_Marker(iconID,position,comment){
+    let travelID=cookieArray.travelID;
+    let lat = position[0];
+    let lng = position[1];
+    let item={"travelID":travelID,data:{"type":"icon","iconID":iconID,"comment":comment,"lat":lat,"lng":lng}}
+
+    let ret=await fetchJSON("api/add",item);
+    if(ret.match(/push ok/)){
+        console.log("push ok");
+        //window.location.reload();
+    }
 }

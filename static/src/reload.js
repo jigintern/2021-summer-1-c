@@ -1,5 +1,5 @@
 /* 旅初期化 */
-const initTravel = () => {
+const initTravel = async() => {
     const cookieArray = getCookieArray();
     console.log(cookieArray);
 
@@ -17,13 +17,19 @@ const initTravel = () => {
             // createCookie('travelID', hash, 7); // Cookie作成
             createCookie('travelID', 19216800, 7); // 仮のデータ
         });
+        const ret = await fetchJSON("api/uadd",cookieArray.travelID);
+        if(ret=="this ID exists"){
+            console.log("this ID exists");
+        }else{
+            console.log("make new record. push ok");
+        }
     }
 }
 
 /* ハッシュ値生成 */
 const sha256 = async(text) => {
-    const uint8  = new TextEncoder().encode(text)
-    const digest = await crypto.subtle.digest('SHA-256', uint8)
+    const uint8 = new TextEncoder().encode(text);
+    const digest = await crypto.subtle.digest('SHA-256', uint8);
     return Array.from(new Uint8Array(digest)).map(v => v.toString(16).padStart(2,'0')).join('');
 }
 
@@ -65,7 +71,7 @@ const getTravelData = async travelID => {
 
     if (data == 'warning') alert('データが違います'); // 削除予定
     
-    console.log(data);
+    return data;
 }
 
 initTravel();
