@@ -1,8 +1,6 @@
 'use strict';
-
 var flag = false;
 var i=0;
-
 function initMap(){
     if (typeof(navigator.geolocation) != 'undefined') {
         navigator.geolocation.watchPosition(success, error);
@@ -176,19 +174,7 @@ function onClick(){
     flag = true;
 }
 
-function changeImg1(){
+function changeImg(num){
     alert('マーカーを置きたい場所を選択してください');
-    i = 1;   
-}
-function changeImg2(){
-    alert('マーカーを置きたい場所を選択してください');
-    i = 2;   
-}
-function changeImg3(){
-    alert('マーカーを置きたい場所を選択してください');
-    i = 3;   
-}
-function changeImg4(){
-    alert('マーカーを置きたい場所を選択してください');
-    i = 4;
+    i = num;   
 }

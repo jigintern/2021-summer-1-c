@@ -10,6 +10,11 @@
         <script type= "module" src="src/reload.js"></script>
         <script type= "text/javascript" src="src/main.js"></script>
         <script type= "module" src="src/reload.js"></script>
+        <script type="module">
+            window.onload=async()=>{
+                console.log(sessionStrage.getItem("ID"));
+            }
+        </script>
     </head>
     <body>
         <div class="header">
@@ -47,10 +52,10 @@
                 <div class="change">
                     <h2>色々なマーカー</h2>
                     <div id="change-img">
-                        <li><a href="#mymap" class="btn" onclick="changeImg1()">飲食店</a></li>
-                        <li><a href="#mymap" class="btn" onclick="changeImg2()">自動販売機</a></li>
-                        <li><a href="#mymap" class="btn" onclick="changeImg3()">神社</a></li>
-                        <li><a href="#mymap" class="btn" onclick="changeImg4()">山</a></li>
+                        <li><a href="#mymap" class="btn" onclick="changeImg(1)">飲食店</a></li>
+                        <li><a href="#mymap" class="btn" onclick="changeImg(2)">自動販売機</a></li>
+                        <li><a href="#mymap" class="btn" onclick="changeImg(3)">神社</a></li>
+                        <li><a href="#mymap" class="btn" onclick="changeImg(4)">山</a></li>
                     </div>
                 </div>
                 <div id="information" class="wrapper">
