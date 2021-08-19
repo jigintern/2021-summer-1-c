@@ -46,7 +46,40 @@ function success(position){
 
 	google.maps.event.addListener(TargetMarker, 'click', function() {
 		infoWindow.open(map,TargetMarker);
-	});
+    });
+    
+    /* マーカーがある場合は追加 */
+    const initMarker = async () => {
+        const { data } = await getTravelData(19216800);
+
+        for (const i in data) {
+            if (data[i].iconID) {
+                console.log(data[i]);
+                let Marker = new google.maps.Marker({
+                    map: map,
+                    position: { lat: data[i].lat, lng: data[i].lng },
+                    icon:{
+                        url: './img/star.png',
+                        scaledSize: new google.maps.Size(35,35)
+                    }
+                });
+                let infoWindow = new google.maps.InfoWindow({
+                    content: "data[i].text" // 削除予定
+                    // content: data[i].text
+                });
+                google.maps.event.addListener(Marker, 'click', function() {
+                    if(flag==false){
+                        infoWindow.open(map,Marker);
+                    }else{
+                        Marker.setMap(null);
+                        flag = false;
+                    }                  
+                });    
+            }
+        }
+    }
+
+    initMarker();
 
     var Marker = new google.maps.Marker({
         map: map,
