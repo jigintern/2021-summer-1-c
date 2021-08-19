@@ -1,0 +1,12 @@
+.bbsitem {
+    border-top: 1px solid gray;
+    margin: 1em;
+}
+.writebox {
+    border: 2px solid gray;
+    padding: 1em;
+    margin: 1em;
+}
+input, textarea {
+    width: 80%;
+}
