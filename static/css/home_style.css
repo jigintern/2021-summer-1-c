@@ -41,31 +41,26 @@ h2{
   margin: auto;
 }
 /*メインビジュアル*/
-#mainvisual img {
-  position: relative;
-  width: 100%;
+#mainvisual{
+    position: relative;
 }
 
-#mainvisual h3{
-  position: absolute; 
-  left: 10%; 
-  top: 50%; 
-  font-size: 20px;
-  color: white;  
-  backdrop-filter: blur(12px);
+#mainvisual img{
+    width: 100%;
+    padding: 0;
 }
 
 .btn{
   position: absolute;
   right:7%;
-  bottom: 20%; 
+  bottom: 10%; 
   font-size: 20px;
   color: rgb(255, 255, 255);
   padding: 10px;
   cursor: pointer;
 }
-/* スマホ */
 
+/* スマホ */
 @media screen and (max-width: 600px) {
   .pc-header{
     display: none;
@@ -73,9 +68,8 @@ h2{
 }
 
 /* PC */
-
 @media screen and (min-width: 600px) {
-  #mainvisual {
+  #mainvisual{
     display: none;
   }
   ul{
@@ -87,7 +81,7 @@ h2{
     background-color: rgb(36, 37, 48);
   }
   .slider {
-    width:100%;
+    width:94%;
     margin:0 auto;
   }
   .slider img {
@@ -163,7 +157,6 @@ h2{
 div > img{
     width: 150px;
 }
-
 
 .icon > a{
     border: solid;
