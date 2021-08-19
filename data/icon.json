@@ -2,6 +2,43 @@
   {
     "iconID":1,
     "name":"観光スポット",
-    "src":"img/icon/sightseeing.png"
+    "src":"img/icon/sightseeing.png",
+    "memo":"現在存在しないアイコン"
+  },
+  {
+    "iconID":2,
+    "name":"星",
+    "src":"static/img/star.png",
+    "memo":""
+  },
+  {
+    "iconID":3,
+    "name":"飲食店",
+    "src":"static/img/food.png",
+    "memo":""
+  },
+  {
+    "iconID":4,
+    "name":"自動販売機",
+    "src":"static/img/can.png",
+    "memo":""
+  },
+  {
+    "iconID":5,
+    "name":"神社",
+    "src":"static/img/jinja.png",
+    "memo":""
+  },
+  {
+    "iconID":6,
+    "name":"山",
+    "src":"static/img/yama.png",
+    "memo":""
+  },
+  {
+    "iconID":7,
+    "name":"寺",
+    "src":"static/img/temple.png",
+    "memo":""
   }
 ]

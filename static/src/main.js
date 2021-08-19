@@ -88,71 +88,70 @@ function success(position){
         let lat = event.latLng.lat();
         let lng = event.latLng.lng();
         if(text!=null){
-            if(i==0){
-                var Marker = new google.maps.Marker({
-                    position: {lat, lng},
-                    map:map,
-                    icon:{
-                        url: './img/star.png',
-                        scaledSize: new google.maps.Size(35,35)
-                    }
-                });    
-                var infoWindow = new google.maps.InfoWindow({
-                    content: text
-                });
-            }else if(i==1){
-                var Marker = new google.maps.Marker({
-                    position: {lat, lng},
-                    map:map,
-                    icon:{
-                        url: './img/food.png',
-                        scaledSize: new google.maps.Size(35,35)
-                    }
-                });    
-                var infoWindow = new google.maps.InfoWindow({
-                    content: text
-                });
-                i=0;
-            }else if(i==2){
-                var Marker = new google.maps.Marker({
-                    position: {lat, lng},
-                    map:map,
-                    icon:{
-                        url: './img/can.png',
-                        scaledSize: new google.maps.Size(35,35)
-                    }
-                });    
-                var infoWindow = new google.maps.InfoWindow({
-                    content: text
-                });
-                i=0;
-            }else if(i==3){
-                var Marker = new google.maps.Marker({
-                    position: {lat, lng},
-                    map:map,
-                    icon:{
-                        url: './img/jinja.png',
-                        scaledSize: new google.maps.Size(35,35)
-                    }
-                });    
-                var infoWindow = new google.maps.InfoWindow({
-                    content: text
-                });
-                i=0;
-            }else if(i==4){
-                var Marker = new google.maps.Marker({
-                    position: {lat, lng},
-                    map:map,
-                    icon:{
-                        url: './img/yama.png',
-                        scaledSize: new google.maps.Size(35,35)
-                    }
-                });    
-                var infoWindow = new google.maps.InfoWindow({
-                    content: text
-                });
-                i=0;
+            switch (i){
+                case 0:
+                    var Marker = new google.maps.Marker({
+                        position: {lat, lng},
+                        map:map,
+                        icon:{
+                            url: './img/star.png',
+                            scaledSize: new google.maps.Size(35,35)
+                        }
+                    });
+                    break;
+
+                case 1:
+                    var Marker = new google.maps.Marker({
+                        position: {lat, lng},
+                        map:map,
+                        icon:{
+                            url: './img/food.png',
+                            scaledSize: new google.maps.Size(35,35)
+                        }
+                    });
+                    i=0;
+                    break;
+
+                case 2:
+                    var Marker = new google.maps.Marker({
+                        position: {lat, lng},
+                        map:map,
+                        icon:{
+                            url: './img/can.png',
+                            scaledSize: new google.maps.Size(35,35)
+                        }
+                    });
+                    i=0;
+                    break;
+
+                case 3:
+                    var Marker = new google.maps.Marker({
+                        position: {lat, lng},
+                        map:map,
+                        icon:{
+                            url: './img/jinja.png',
+                            scaledSize: new google.maps.Size(35,35)
+                        }
+                    });
+                    i=0;
+                    break;
+    
+                case 4:
+                    var Marker = new google.maps.Marker({
+                        position: {lat, lng},
+                        map:map,
+                        icon:{
+                            url: './img/yama.png',
+                            scaledSize: new google.maps.Size(35,35)
+                        }
+                    });
+                    i=0;
+                    break;
+
             }
+            var infoWindow = new google.maps.InfoWindow({
+                content: text
+            });
             google.maps.event.addListener(Marker, 'click', function() {
                 if(flag==false){
                     infoWindow.open(map,Marker);
