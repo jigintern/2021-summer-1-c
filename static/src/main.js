@@ -89,6 +89,7 @@ function success(position){
         let text = prompt('説明を入力して下さい','例:jig.jp');
         let lat = event.latLng.lat();
         let lng = event.latLng.lng();
+        let posi = [lat,lng];
         if(text!=null){
             switch (i){
                 case 0:
@@ -151,6 +152,9 @@ function success(position){
                     break;
 
             }
+
+            add_Marker(i,posi,text);
+
             var infoWindow = new google.maps.InfoWindow({
                 content: text
             });
@@ -184,4 +188,17 @@ function changeImg(num){
 function change_map(num){
     alert(num)
     sessionStorage.setItem("ID",num);
+}
+
+function add_Marker(iconID,position,comment){
+    let TravelID=cookieArray.travelID;
+    let lat = position[0];
+    let lng = position[1];
+    let item={"travelID":travelID,data:{"type":"icon","iconID":iconID,"comment":comment,"lat":lat,"lng":lng}}
+
+    let ret=await fetchJSON("api/add",item);
+    if(ret.match(/push ok/)){
+        console.log("push ok");
+        //window.location.reload();
+    }
 }
