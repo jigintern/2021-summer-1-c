@@ -16,7 +16,6 @@ h2{
     padding: 0;
 }
 
-
 @media screen and (max-width: 600px) {
   .pc-top{
     display: none;
@@ -93,13 +92,13 @@ h2{
   }
 }
 
-.top h3{
+.phrase{
+    display: none;
     position: absolute; 
-    left: 10%; 
+    left: 15%; 
     top: 50%; 
     font-size: 20px;
     color: white;  
-    backdrop-filter: blur(12px);
 }
 
 .btn{
