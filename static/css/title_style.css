@@ -22,7 +22,7 @@ nav {
     left: -300px;
     bottom: 0;
     width: 300px;
-    background: #ffffff;
+    background: #000;
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -46,18 +46,18 @@ nav .inner ul {
 nav .inner ul li {
     position: relative;
     margin: 0;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid #fff;
 }
 nav .inner ul li a {
     display: block;
-    color: #333;
+    color: #fff;
     font-size: 14px;
     padding: 1em;
     text-decoration: none;
     transition-duration: 0.2s;
 }
 nav .inner ul li a:hover {
-    background: #e4e4e4;
+    background: rgb(133, 129, 129);
 }
 @media screen and (max-width: 767px) {
     nav {
@@ -68,8 +68,7 @@ nav .inner ul li a:hover {
   
 .menu{
     display: block;
-    position: absolute;
-    top: 12px;
+    position: relative;
     right: 6%;
     width: 30px;
     height: 30px;
@@ -86,33 +85,37 @@ nav .inner ul li a:hover {
     height: 2px;
     background-color: rgb(255, 255, 255);
     border-radius: 4px;
-    transition: all .5s;
 }
   
-.menu span:nth-child(1) {
+.menu_top {
     top: 4px;
 }
-.menu span:nth-child(2) {
-    top: 14px;
+.menu_mid {
+    top: 50%;
 }
-.menu span:nth-child(3) {
+.menu_btm {
     bottom: 4px;
 }
   
-.open .menu_btn span {
+.menu.open span {
     background-color: #fff;
 }
-.open .menu_btn span:nth-child(1) {
-    -webkit-transform: translateY(10px) rotate(-315deg);
-    transform: translateY(10px) rotate(-315deg);
+
+.menu.open .menu_top {
+    transform: translate(-50%,10px) rotate(45deg);      
+    transition: transform .3s;  
 }
-.open .menu_btn span:nth-child(2) {
+
+.menu.open .menu_mid {
     opacity: 0;
+    transition: opacity .3s;    
 }
-.open .menu_btn span:nth-child(3) {
-    -webkit-transform: translateY(-10px) rotate(315deg);
-    transform: translateY(-10px) rotate(315deg);
+
+.menu.open .menu_btm {
+    transform: translate(-50%,-10px) rotate(-45deg);      
+    transition: transform .3s;   
 }
+
   
 #mask {
     display: none;

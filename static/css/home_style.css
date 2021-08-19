@@ -1,30 +1,47 @@
 @charset "UTF-8";
 
 html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 100%;
 }
 
 body {
-  font-family: "Century Gothic",sans-serif;
-  color:#24292e;
+  color: #fff;
+  background-color: #000;
+  font-family: "Yu Mincho",sans-serif;
 }
 
-h2{
+.section-title {
+  border-bottom: solid 2px #AEAEAE;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto 130px auto;
+  font-size: 0.9rem;
+  padding: 0 4%;
+}
+
+/* h2{
   margin: 60px auto;
   border: 1px solid #000;
   border-width: 0 0 1px 7px;
-}
+} */
 
 /*
 ヘッダー
 */
 .header {
+  border-bottom: 2px solid rgba(120, 120, 120, 0.8);
   z-index: 9999;
   position: fixed;
   width: 100%;
-  box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
-  -webkit-box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
-  -moz-box-shadow: 0px 3px 3px -3px rgba(0,0,0,0.6);
+  
 }
 
 #header {
@@ -41,26 +58,43 @@ h2{
   margin: auto;
 }
 /*メインビジュアル*/
-#mainvisual{
-    position: relative;
+#mainvisual {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+#mainvisual img {
+  position: relative;
+  width: 100%;
 }
 
-#mainvisual img{
-    width: 100%;
-    padding: 0;
+#mainvisual h3{
+  position: absolute; 
+  left: 10%; 
+  top: 50%; 
+  font-size: 20px;
+  color: white;  
+  backdrop-filter: blur(12px);
 }
 
-.btn{
-  position: absolute;
+#mainvisual .btn{
+  position: static;
   right:7%;
-  bottom: 10%; 
+  bottom: 20%; 
   font-size: 20px;
   color: rgb(255, 255, 255);
   padding: 10px;
   cursor: pointer;
 }
 
+/*About*/
+#about p{
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+
 /* スマホ */
+
 @media screen and (max-width: 600px) {
   .pc-header{
     display: none;
@@ -68,8 +102,9 @@ h2{
 }
 
 /* PC */
+
 @media screen and (min-width: 600px) {
-  #mainvisual{
+  #mainvisual {
     display: none;
   }
   ul{
@@ -81,7 +116,7 @@ h2{
     background-color: rgb(36, 37, 48);
   }
   .slider {
-    width:94%;
+    width:100%;
     margin:0 auto;
   }
   .slider img {
@@ -138,7 +173,7 @@ h2{
       background:#333;
   }
 }
-
+/*キャッチコピー*/
 .phrase{
     display: none;
     position: absolute; 
@@ -158,13 +193,14 @@ div > img{
     width: 150px;
 }
 
+
 .icon > a{
     border: solid;
     margin: 20px 10px;
     border-radius: 8px;
 }
 
-.board .btn{
+#maivisual .btn{
     position: static;
     text-align: center;
     font-size: 20px;
@@ -180,9 +216,6 @@ div > img{
 }
 
 /*SNS*/
-.sns{
-    height: 200px;
-}
 .sns-icon{
   text-align: center;
 }
@@ -267,12 +300,65 @@ div > img{
   line-height: 50px;
 }
 
-footer{
-	background-color: gray;
+/*フッター*/
+
+#footer {
+  background-color: #24292e;
+  color: #fff;
+  font-size: 0.6rem;
+  padding: 10px 20px;
+  text-align: center;
 }
 
-footer p{
-	font-size: 14px;
-	padding-top: 4%;
-	color: white;
+
+/*ボタン*/
+.board{
+  padding-top: 40px;
+  text-align: center;
+} 
+.share-btn p{
+  color: #fff;
+}
+.share-btn {
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 12px 24px;
+  position: relative;
+  border: 2px solid #fff;
+}
+.share-btn:hover {
+  border: 2px solid transparent;
+  color: #fff000;
+}
+
+.share-btn:before, .share-btn:after {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  transform: scale(0);
+  transition: .4s;
+}
+
+.share-btn:before {
+  border-bottom: 2px solid #fff000;
+  border-left: 2px solid #fff000;
+  transform-origin: 100% 0%;
+}
+
+.share-btn:after {
+  border-top: 2px solid #fff000;
+  border-right: 2px solid #fff000;
+  transform-origin: 0% 100%;
+}
+
+.share-btn:hover:after,
+.share-btn:hover:before {
+  transform: scale(1);
 }

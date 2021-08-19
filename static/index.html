@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>jigIntern</title>
+    <title>Marking!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<link rel="shortcut icon" href="img/site-icon.png">-->
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
@@ -30,9 +30,9 @@
                 </div>
             </nav>
             <div class="menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class="menu_top"></span>
+                <span class="menu_mid"></span>
+                <span class="menu_btm"></span>
             </div>
             <div id="mask"></div>
         </div>
@@ -52,16 +52,35 @@
             <div class="phrase"><h3>俺が情報だ</h3></div>
             <div class="phrase"><h3>不自由を、楽しめ</h3></div>
             <div class="phrase"><h3>Walk,Find,to Add</h3></div>
-            <a href="select.html"><p class="btn">目的地を選ぶ⇒</p></a>
+            <!-- <a href="select.html"><p class="btn">旅に出る⇒</p></a> -->
         </div>
 
-        <div class="about">
-            <h2>アピールポイント</h2>
-            <p>アピールポイントの説明</p>
-        </div>
+        <div class="wrapper" id="about">
+            <div class="section-title">
+                <h3>Marking?</h3>
+            </div>
+            <div class="content">
+                <p>旅をするとき、あなたは何をしますか？<br>
+                    今は行く前から360度カメラで撮影された画像でその場所を"知っています"<br>
+                    でも、旅って、もっと不自由を楽しむものじゃないでしょうか？<br>
+                    <br>
+                    どんなとこなんだろう？何があるんだろう？<br>
+                    <br>
+                    まるで修学旅行のような好奇心を思い出せるのがMarkingです。<br>
+                </p>
+            </div>
 
-        <h2>目的地を選んで始めましょう</h2>
-            <div class="icon">    
+        </div>
+        <div class="wrapper" id="select">
+            <div class="section-title">
+                <h3>さあ、今すぐ旅に出ましょう</h3>
+            </div>
+            <div class="board">
+                <a href="select.html" class="share-btn btn-flat">
+                    <p>目的地を決める</p>
+                </a>
+            </div>  
+            <!-- <div class="icon">    
                 <a href="map.html" onclick="change_map(1)"><div class="icon1">                    
                     <img src="icon/megane.png" alt="">
                     <p>眼鏡会館</p>
@@ -78,40 +97,47 @@
                     <img src="icon/work.png" alt="">
                     <p>鯖江商工会議所</p>
                 </div></a>                
-            </div>
+            </div> -->
         </div>
 
-        <div class="board">
-            <h2>掲示板で自分の旅路を共有</h2>
+        <div class="wrapper" id="board">
+            <div class="section-title">
+                <h3>他の旅人と交流する</h3>
+            </div>
             <p>掲示板を覗いてみましょう</p>
-            <a href="share.html">
-                <p class="btn">掲示板へ行く</p>
-            </a>
+            <div class="board">
+                <a href="share.html" class="share-btn btn-flat">
+                    <p>掲示板へ行く</p>
+                </a>
+            </div>    
         </div>
-
-        <div class="sns">
-            <h2>SNS</h2>
-            <div class="sns-icon">
-                <a href="https://twitter.com/" class="btn-social-square btn-social-square--twitter">
-                    <span class="twitter">
-                        <i class="fab fa-twitter"></i>
-                    </span>
-                </a>
-                <a href="https://www.facebook.com/" class="btn-social-square btn-social-square--facebook">
-                    <span class="facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </span>
-                </a>
-                <a href="https://www.instagram.com/" class="insta_btn">
-                    <span class="insta">
-                        <i class="fab fa-instagram"></i>
-                    </span>
-                </a>
+        <div class="wrapper" id="sns">
+            <div class="sns">
+                <div class="section-title">
+                    <h3>SNS</h3>
+                </div>
+                <div class="sns-icon">
+                    <a href="https://twitter.com/" class="btn-social-square btn-social-square--twitter" target="_blank">
+                        <span class="twitter">
+                            <i class="fab fa-twitter"></i>
+                        </span>
+                    </a>
+                    <a href="https://www.facebook.com/" class="btn-social-square btn-social-square--facebook" target="_blank">
+                        <span class="facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </span>
+                    </a>
+                    <a href="https://www.instagram.com/" class="insta_btn" target="_blank">
+                        <span class="insta">
+                            <i class="fab fa-instagram"></i>
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <footer>
-            <p>(c)</p>
+        <footer id="footer">
+            <p>&copy; 2021 jig.jp SummerIntern1 Team-C</p>
         </footer>
 
     </main>
@@ -133,7 +159,7 @@
         const rNo = Math.floor(Math.random() * target.length);
         target[rNo].style.display = "block";
 
-        (function ($) {      　//メニュー         
+        (function ($) {//メニュー         
             const $nav = $('#header');
             const $btn = $('.menu');
             const $mask = $('#mask');
@@ -142,14 +168,18 @@
             $btn.on('click', function () {
                 if (!$nav.hasClass(open)) {
                     $nav.addClass(open);
+                    $btn.addClass(open); 
                 } else {
                     $nav.removeClass(open);
+                    $btn.removeClass(open); 
                 }
             });
 
             $mask.on('click', function () {
                 $nav.removeClass(open);
+                $btn.removeClass(open); 
             });
+
         })(jQuery);
     </script>
 </body>
