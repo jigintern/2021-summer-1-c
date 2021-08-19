@@ -5,6 +5,7 @@ const locafn="data/location.json";
 const infofn="data/information.json";
 const iconfn="data/icon.json";
 const udatafn="data/userdata.json";
+const boardfn="data/board.json";
 
 const DIRECTIONS_API_URL = 'https://maps.googleapis.com/maps/api/directions/json?'
 const DIRECTIONS_API_KEY = 'AIzaSyBiAGQru246aR7Ht9TuJK0id87_q-spITU';
@@ -13,6 +14,7 @@ let loca=jsonfs.read(locafn)||[];
 let info=jsonfs.read(infofn)||[];
 let icon=jsonfs.read(iconfn)||[];
 let udata=jsonfs.read(udatafn)||[];
+let board=jsonfs.read(boardfn)||[];
 
 class MyServer extends Server{
     api(path,req){
@@ -26,7 +28,7 @@ class MyServer extends Server{
                 }
             }
             return "warning";
-        }else if(path=="/api/info"){
+        } else if(path=="/api/info"){
             //指定されたIDのinformation.jsonを返す
             //call:("/api/info",ID),return:{ID,info[]}
             console.log("call info");
@@ -42,7 +44,7 @@ class MyServer extends Server{
             //call:("/api/icon"),return:[{iconID,addres}]
             console.log("call icon");
             return icon;
-        }else if (path == "/api/add") {
+        } else if (path == "/api/add") {
             //位置情報を保存する
             //call:("/api/add",{travelID,data[{type,date,iconID,comment,lat,lng}]}),return:ok
             console.log("call add")
@@ -88,6 +90,12 @@ class MyServer extends Server{
             }
 
             return getDist();
+        } else if (path == "/api/badd") {
+            board.push(req);
+            jsonfs.write(datafn,data);
+            return "ok";
+        } else if (path == "/api/blist") {
+            return board;
         }
     }
 }
