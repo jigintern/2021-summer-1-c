@@ -46,7 +46,7 @@ class MyServer extends Server{
             return icon;
         } else if (path == "/api/add") {
             //位置情報を保存する
-            //call:("/api/add",{travelID,data[{type,date,iconID,comment,lat,lng}]}),return:ok
+            //call:("/api/add",{travelID,data[{type,date,iconID,comment,lat,lng}]}),return:"ok"
             console.log("call add")
             for(const d in udata){
                if(udata[d].travelID==req.travelID){
@@ -59,6 +59,16 @@ class MyServer extends Server{
            udata[udata.length-1].data.push(req.data);
            jsonfs.write(udatafn,udata);
            return "make new record. push ok";
+        } else if (path == "/api/uadd") {
+            //userdata.jsonに新規ユーザを追加する
+            //call:("/api/uadd",travelID),return:"ok" or "no"
+            for(const d in udata){
+                if(udata[d].travelID==req){
+                     return "this ID exists";
+                }
+            }
+            udata.push({travelID:req,data:[]});
+            return "make new record. push ok";
         } else if (path == "/api/get") {
             //位置情報を取得する
             //call:("/api/add",travelID),return:ok
