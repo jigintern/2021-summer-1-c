@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>jigIntern</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--<link rel="shortcut icon" href="img/site-icon.png">-->
-        <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-        <link rel="stylesheet" href="css/home_style.css">
-        <link rel="stylesheet" href="css/title_style.css">
-        <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-        <script type= "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-        <script type= "text/javascript" src="src/main.js"></script>
-    </head>
-    <body>
-        <header class="header">       
-            <div id="header">
-                <h1 class="site-title">
-                    <a href="index.html"><img src="img/logo.png"></a>
-                </h1>
-                <nav>
-                    <div class="inner">
-                     <ul>
+<head>
+    <meta charset="utf-8" />
+    <title>jigIntern</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="shortcut icon" href="img/site-icon.png">-->
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    <link rel="stylesheet" href="css/home_style.css">
+    <link rel="stylesheet" href="css/title_style.css">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="src/main.js"></script>
+</head>
+<body>
+    <header class="header">       
+        <div id="header">
+            <h1 class="site-title">
+                <a href="index.html"><img src="img/logo.png"></a>
+            </h1>
+            <nav>
+                <div class="inner">
+                    <ul>
                         <li><a href="index.html">トップページ</a></li>
                         <li><a href="select.html">目的地選択</a></li>
                         <li><a href="share.html">掲示板</a></li>
-                      </ul>
-                    </div>
-                </nav>
-                <div class="menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    </ul>
                 </div>
-                <div id="mask"></div>
+            </nav>
+            <div class="menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        </header>
+            <div id="mask"></div>
+        </div>
+    </header>
 
-        <main>
-            <div class="pc-header">
-                <ul class="slider">
-                    <a href="select.html"><li><img src="img/home.jpg" alt=""></li></a>
-                    <a href="share.html"><li><img src="img/board.jpg" alt=""></li></a>
-                </ul>
-            </div>
-            
-            <div id="mainvisual">
-                <img src="img/home.jpg" alt="" >
-                <h3>キャッチコピー</h3>
-                <a href="select.html"><p class="btn">目的地を選ぶ⇒</p></a>
-            </div>
+    <main>
+        <div class="pc-header">
+            <ul class="slider">
+                <a href="select.html"><li class><img src="img/home1-1.jpg" alt=""></li></a>     
+                <a href="share.html"><li><img src="img/home2.jpg" alt=""></li></a>
+            </ul>
+        </div>
 
-            <div class="about">
-                <h2>アピールポイント</h2>
-                <p>アピールポイントの説明</p>
-            </div>
+        <div id="mainvisual">
+            <img src="img/home.jpg" alt="">
+            <div class="phrase"><h3>足りない方が、満足。</h3></div>
+            <div class="phrase"><h3>俺が情報だ</h3></div>
+            <div class="phrase"><h3>不自由を、楽しめ</h3></div>
+            <div class="phrase"><h3>Walk,Find,to Add</h3></div>
+            <a href="select.html"><p class="btn">目的地を選ぶ⇒</p></a>
+        </div>
 
-            <h2>目的地を選んで始めましょう</h2>
+        <div class="about">
+            <h2>アピールポイント</h2>
+            <p>アピールポイントの説明</p>
+        </div>
+
+        <h2>目的地を選んで始めましょう</h2>
             <div class="icon">    
                 <a href="map.html" onclick="change_map(1)"><div class="icon1">                    
                     <img src="icon/megane.png" alt="">
@@ -76,70 +79,79 @@
                     <p>鯖江商工会議所</p>
                 </div></a>                
             </div>
+        </div>
 
-            <div class="board">
-                <h2>掲示板で自分の旅路を共有</h2>
-                <p>掲示板を覗いてみましょう</p>
-                <a href="share.html"><p class="btn">掲示板へ行く</p></a>
+        <div class="board">
+            <h2>掲示板で自分の旅路を共有</h2>
+            <p>掲示板を覗いてみましょう</p>
+            <a href="share.html">
+                <p class="btn">掲示板へ行く</p>
+            </a>
+        </div>
+
+        <div class="sns">
+            <h2>SNS</h2>
+            <div class="sns-icon">
+                <a href="https://twitter.com/" class="btn-social-square btn-social-square--twitter">
+                    <span class="twitter">
+                        <i class="fab fa-twitter"></i>
+                    </span>
+                </a>
+                <a href="https://www.facebook.com/" class="btn-social-square btn-social-square--facebook">
+                    <span class="facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </span>
+                </a>
+                <a href="https://www.instagram.com/" class="insta_btn">
+                    <span class="insta">
+                        <i class="fab fa-instagram"></i>
+                    </span>
+                </a>
             </div>
+        </div>
 
-            <div class="sns">
-                <h2>SNS</h2>
-                <div class="sns-icon">
-                    <a href="https://twitter.com/" class="btn-social-square btn-social-square--twitter">
-                        <span class="twitter">
-                            <i class="fab fa-twitter"></i>
-                        </span>
-                    </a>
-                    <a href="https://www.facebook.com/" class="btn-social-square btn-social-square--facebook">
-                        <span class="facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </span>
-                    </a>
-                    <a href="https://www.instagram.com/" class="insta_btn">
-                        <span class="insta">
-                          <i class="fab fa-instagram"></i>
-                        </span> 
-                    </a>    
-                </div>
-            </div>
+        <footer>
+            <p>(c)</p>
+        </footer>
 
-            <footer>
-                <p>(c)</p>
-            </footer>
+    </main>
+    <script type="text/javascript">
+        $('.slider').slick({ //トップの画像スライド
+            autoplay: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: '<div class="slick-prev"></div>',
+            nextArrow: '<div class="slick-next"></div>',
+            centerMode: true,
+            variableWidth: true,
+            dots: true,
+        });
 
-        </main>
-        <script type="text/javascript">
-            $('.slider').slick({ //トップの画像スライド
-                auheaderlay: true,
-                infinite: true,
-                speed: 500,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                prevArrow: '<div class="slick-prev"></div>',
-                nextArrow: '<div class="slick-next"></div>',
-                centerMode: true,
-                variableWidth: true,
-                dots: true,
+        const target = document.getElementsByClassName("phrase");
+        const rNo = Math.floor(Math.random() * target.length);
+        target[rNo].style.display = "block";
+
+        (function ($) {      　//メニュー         
+            const $nav = $('#header');
+            const $btn = $('.menu');
+            const $mask = $('#mask');
+            const open = 'open';
+
+            $btn.on('click', function () {
+                if (!$nav.hasClass(open)) {
+                    $nav.addClass(open);
+                } else {
+                    $nav.removeClass(open);
+                }
             });
-            (function($) {      　//メニュー         
-                const $nav   = $('#header');
-                const $btn   = $('.menu');
-                const $mask  = $('#mask');
-                const open   = 'open';
 
-                $btn.on( 'click', function() {
-                    if ( ! $nav.hasClass( open ) ) {
-                        $nav.addClass( open );
-                    } else {
-                        $nav.removeClass( open );
-                    }
-                });
+            $mask.on('click', function () {
+                $nav.removeClass(open);
+            });
+        })(jQuery);
+    </script>
+</body>
 
-                $mask.on('click', function() {
-                    $nav.removeClass( open );
-                });
-            } )(jQuery);
-        </script>
-    </body>
 </html>
