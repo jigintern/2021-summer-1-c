@@ -74,9 +74,8 @@ const getTravelData = async travelID => {
     if (data == 'warning') alert('データが違います'); // 削除予定
     
     for (const i in data.data) {
-        iconID = data.data[i].iconID;
-
-        if (iconID) {
+        if (data.data[i].type === 'icon') {
+            iconID = data.data[i].iconID;
             data.data[i].name = icon[iconID].name
             data.data[i].src =icon[iconID].src
         }
