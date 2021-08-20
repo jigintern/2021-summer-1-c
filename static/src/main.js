@@ -1,5 +1,5 @@
 'use strict';
-const locationID = sessionStorage.getItem("ID");
+const locationID = sessionStorage.getItem("ID") || 1;
 
 var flag = false;
 var i=0;
