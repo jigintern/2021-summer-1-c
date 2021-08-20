@@ -47,40 +47,6 @@ function success(position){
 	google.maps.event.addListener(TargetMarker, 'click', function() {
 		infoWindow.open(map,TargetMarker);
     });
-    
-    /* マーカーがある場合は追加 */
-    const initMarker = async () => {
-        const { data } = await getTravelData(19216800);
-
-        for (const i in data) {
-            if (data[i].iconID) {
-                console.log(data[i]);
-                let Marker = new google.maps.Marker({
-                    map: map,
-                    position: { lat: data[i].lat, lng: data[i].lng },
-                    icon: {
-                        url: './img/star.png', // 削除予定
-                        // url: data[i].src,
-                        scaledSize: new google.maps.Size(35,35)
-                    }
-                });
-                let infoWindow = new google.maps.InfoWindow({
-                    content: "data[i].text" // 削除予定
-                    // content: data[i].text
-                });
-                google.maps.event.addListener(Marker, 'click', function() {
-                    if(flag==false){
-                        infoWindow.open(map,Marker);
-                    }else{
-                        Marker.setMap(null);
-                        flag = false;
-                    }                  
-                });    
-            }
-        }
-    }
-
-    initMarker();
 
     var Marker = new google.maps.Marker({
         map: map,
@@ -203,7 +169,76 @@ function success(position){
         }else{
             return;
         }
-    }    
+    }
+
+    /* マーカーがある場合は追加 */
+    const initMarker = async () => {
+        const { data } = await getTravelData(19216800);
+
+        for (const i in data) {
+            if (data[i].iconID) {
+                let Marker = new google.maps.Marker({
+                    map: map,
+                    position: {
+                        lat: data[i].lat,
+                        lng: data[i].lng
+                    },
+                    icon: {
+                        url: './img/star.png', // 削除予定
+                        // url: data[i].src,
+                        scaledSize: new google.maps.Size(35,35)
+                    }
+                });
+                let infoWindow = new google.maps.InfoWindow({
+                    content: "data[i].text" // 削除予定
+                    // content: data[i].text
+                });
+                google.maps.event.addListener(Marker, 'click', function() {
+                    if(flag==false){
+                        infoWindow.open(map,Marker);
+                    }else{
+                        Marker.setMap(null);
+                        flag = false;
+                    }                  
+                });    
+            }
+        }
+    }
+
+    /* 目的地情報をマップに表示 */
+    const DisplayInfo = async () => {
+        const locationID = 1;
+        // const data = await getDisplayInfo(locationID, lat, lng, targetlat, targetlng); // 表示する情報を取得
+        const data = await getDisplayInfo(locationID, lat, lng, targetlat, targetlng, 100); // 表示する情報を取得（距離を偽造)
+
+        for (const i in data) {
+            let Marker = new google.maps.Marker({
+                map: map,
+                position: {
+                    lat: data[i].lat,
+                    lng: data[i].lng
+                },
+                icon: {
+                    url: './img/star.png',
+                    scaledSize: new google.maps.Size(35,35)
+                }
+            });
+            let infoWindow = new google.maps.InfoWindow({
+                content: data[i].info
+            });
+            google.maps.event.addListener(Marker, 'click', function() {
+                if(flag==false){
+                    infoWindow.open(map,Marker);
+                }else{
+                    Marker.setMap(null);
+                    flag = false;
+                }                  
+            });
+        }
+    }
+
+    initMarker();
+    DisplayInfo();
 }
 
 function error(e){
