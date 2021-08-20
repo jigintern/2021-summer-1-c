@@ -38,13 +38,45 @@
             <div id=container></div>
             
             <div class=writebox>
-                名前：<input type=text id=inp_name><br>
+                名前：<input type=text id=inp_name><br>コメント<br>
                 <textarea id=inp_body></textarea><br>
-                <button id=btn_write>書き込む</button>
+                <button type="submit" id=btn_write>書き込む</button>
             </div>
         </main>
 
-        <script>
+        <script type=module>
+            import { fetchJSON } from "https://js.sabae.cc/fetchJSON.js";
+        const enc = (s) => {
+            s = s.replace(/&/g, "&amp;");
+            s = s.replace(/</g, "&lt;");
+            s = s.replace(/>/g, "&gt;");
+            s = s.replace(/\n/g, "<br>");
+            s = s.replace(/"/g, "&quot");
+            s = s.replace(/'/g, "&#39");
+            return s;
+        };
+
+        window.onload = async () => {
+            const data = await fetchJSON("api/blist");
+            for (const d of data) {
+                const div = document.createElement("div");
+                div.className = "bbsitem";
+                div.innerHTML = `<span class=date>${enc(d.date)}</span> by <span class=name>${enc(d.name)}</span>
+                <div class=body>${enc(d.body)}</div>`
+                container.appendChild(div);
+            }
+
+            btn_write.onclick = async () => {
+                const item = {
+                    name: inp_name.value,
+                    body: inp_body.value,
+                    date: new Date().toString()
+                };
+                if (await fetchJSON("api/badd", item) == "ok") {
+                    window.location.reload();
+                }
+            }
+        };
             (function($) {      　//メニュー         
                 const $nav   = $('#top');
                 const $btn   = $('.menu');
