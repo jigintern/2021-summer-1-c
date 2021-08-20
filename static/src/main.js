@@ -230,6 +230,7 @@ async function success(position) {
                     if(flag==false){
                         infoWindow.open(map,Marker);
                     }else{
+                        delete_Marker(Marker);
                         Marker.setMap(null);
                         flag = false;
                     }                  
@@ -263,6 +264,7 @@ async function success(position) {
                     infoWindow.open(map,Marker);
                 }else{
                     Marker.setMap(null);
+                    delete_Marker(Marker);
                     flag = false;
                 }                  
             });
@@ -292,9 +294,8 @@ function change_map(num){
     sessionStorage.setItem("ID", num);
 }
 
-/* マーカーデータを送信 */
+/* マーカーデータ追加 */
 async function add_Marker(iconID, position, comment) {
-    
     const travelID = getCookieArray().travelID;
     let lat = position[0];
     let lng = position[1];
@@ -310,6 +311,16 @@ async function add_Marker(iconID, position, comment) {
     };
 
     let ret = await fetchJSON("api/add", item);
+    if (ret.match(/push ok/)) console.log("push ok");
+}
+
+/* マーカーデータを削除 */
+async function delete_Marker(Marker) {
+    const travelID = getCookieArray().travelID;
+    const lat = Marker.getPosition().lat();
+    const lng = Marker.getPosition().lng();
+
+    const ret = await fetchJSON("api/delete", {travelID, lat, lng});
     if (ret.match(/push ok/)) console.log("push ok");
 }
 
