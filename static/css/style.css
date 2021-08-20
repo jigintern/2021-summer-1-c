@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+*{
+  box-sizing: border-box;
+}
+
 html {
     font-size: 100%;
 }
@@ -129,6 +133,10 @@ main {
   padding-bottom: 30px;
 }
 
+.comment-exp input {
+  width:400px;
+}
+
 .comment {
   border-bottom: solid 2px #AEAEAE;
   margin: 1rem auto;
@@ -138,7 +146,7 @@ main {
   border-bottom: solid 2px #049bff;
 }
 
-#modal .modal-content a{
+.modal-content a{
   color:white;
 }
 
@@ -153,6 +161,7 @@ main {
   height: 100vh;
   position: fixed;
   top: 0;
+  left:0;
   width: 100%;
 }
 .modal__bg{
@@ -164,9 +173,9 @@ main {
 .modal__content{
   color: #000;
   background: #ffffffcb;
-  left: 50%;
   padding: 10px;
   position: absolute;
+  left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
   width: 60%;
@@ -218,8 +227,6 @@ main {
 	padding: 8px 38px 8px 8px;
 	color: #666666;
 }
-
-
 
 .exp-btn-all {
   text-align: center;

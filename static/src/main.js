@@ -2,7 +2,7 @@
 const locationID = sessionStorage.getItem("ID") || 1;
 
 var flag = false;
-var i=8;
+var i=0;
 function initMap(){
     if (typeof(navigator.geolocation) != 'undefined') {
         navigator.geolocation.watchPosition(success, error);
@@ -98,7 +98,7 @@ async function success(position) {
         let posi = [lat,lng];
         if(text!=null){
             switch (i){
-                case 0:
+                case 8:
                     var Marker = new google.maps.Marker({
                         position: {lat, lng},
                         map:map,
@@ -191,7 +191,7 @@ async function success(position) {
             }
 
             add_Marker(i, posi, text);
-            i = 8;
+            i = 0;
 
             var infoWindow = new google.maps.InfoWindow({
                 content: text
@@ -290,8 +290,10 @@ function onClick(){
 }
 
 function changeImg(num){
-    alert('マーカーを置きたい場所を選択してください');
     i = num;   
+    if(i!=0||i!=null){
+        alert('マーカーを置きたい場所を選択してください');
+    }
 }
 
 function change_map(num){
