@@ -255,7 +255,7 @@ function changeImg(num){
 }
 
 function change_map(num){
-    alert(num)
+    //alert(num)
     sessionStorage.setItem("ID", num);
 }
 
