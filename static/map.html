@@ -93,63 +93,64 @@
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB253fu1pMzWUess1PmousKQx6apQCR0Jc&callback=initMap" async defer></script>
                     <!--Google Maps API KEY = AIzaSyB253fu1pMzWUess1PmousKQx6apQCR0Jc-->    
                 </div>
-                <div class="delete">
-                    <a href="#mymap" class="map-btn" onclick="onClick()">マーカーを削除</a>
+                <div class="">
+                    <div id="modal">
+                        <div class="modal-content">
+                            <a class="js-modal-open map-btn" href=""><p>星以外のマークを追加する</p></a>
+                        </div>
+                        <div class="modal js-modal">
+                            <div class="modal__bg js-modal-close"></div>
+                            <div class="modal__content">
+                                <p>置きたいマーカーを選んでください</p>
+                                <!-- <div id="change-img">
+                                    <li><a href="#mymap" class="map-btn" onclick="changeImg(1)">飲食店</a></li>
+                                    <li><a href="#mymap" class="map-btn" onclick="changeImg(2)">自動販売機</a></li>
+                                    <li><a href="#mymap" class="map-btn" onclick="changeImg(3)">神社</a></li>
+                                    <li><a href="#mymap" class="map-btn" onclick="changeImg(4)">山</a></li>
+                                </div> -->
+                                <div class="cp_ipselect cp_sl01" id="change-img">
+                                    <form name="form1">
+                                        <select required name="places">
+                                            <option value="" hidden>マーカーを選ぶ</option>
+                                            <option value="1">飲食店</option>
+                                            <option value="2">自動販売機</option>
+                                            <option value="3">神社</option>
+                                            <option value="4">山</option>
+                                            <option value="5">寺</option>
+                                            <option value="6">動物園</option>
+                                            <option value="7">展望台</option>
+                                        </select>    
+                                    </form>
+                                    </div>
+                                <div class="comment-exp">
+                                    <p>説明を入力してください</p>
+                                    <input type="text" class="comment" id="comment" placeholder="例:jig.jp"><br>    
+                                </div>
+                                <div class="exp-btn-all">
+                                    <input class="exp-btn js-modal-close" type="button" name="yes" value="はい" onclick="changeMarker()"/>
+                                    <input class="exp-btn js-modal-close" type="button" name="no" value="いいえ"/>    
+                                </div>
+                            </div><!--modal__inner-->
+                        </div><!--modal-->
+                        <script type="text/javascript">
+                        $(function(){
+                            $('.js-modal-open').on('click',function(){
+                                $('.js-modal').fadeIn();
+                                return false;
+                            });
+                            $('.js-modal-close').on('click',function(){
+                                $('.js-modal').fadeOut();
+                                return false;
+                            });
+                        });
+                        </script>    
+                    </div>
+        
+                    <a href="#mymap" class="map-btn" onclick="onClick()"><p>マーカーを削除</p></a>
                 </div>
-                <!-- ここにモーダルウィンドウを追加する -->
-            </section>
 
-            <section class="wrapper" id="modal">
-                <div class="modal-content">
-                    <a class="js-modal-open" href="">星以外のマークを追加する</a>
-                </div>
-                <div class="modal js-modal">
-                    <div class="modal__bg js-modal-close"></div>
-                    <div class="modal__content">
-                        <p>置きたいマーカーを選んでください</p>
-                        <!-- <div id="change-img">
-                            <li><a href="#mymap" class="map-btn" onclick="changeImg(1)">飲食店</a></li>
-                            <li><a href="#mymap" class="map-btn" onclick="changeImg(2)">自動販売機</a></li>
-                            <li><a href="#mymap" class="map-btn" onclick="changeImg(3)">神社</a></li>
-                            <li><a href="#mymap" class="map-btn" onclick="changeImg(4)">山</a></li>
-                        </div> -->
-                        <div class="cp_ipselect cp_sl01" id="change-img">
-                            <form name="form1">
-                                <select required name="places">
-                                    <option value="" hidden>マーカーを選ぶ</option>
-                                    <option value="1">飲食店</option>
-                                    <option value="2">自動販売機</option>
-                                    <option value="3">神社</option>
-                                    <option value="4">山</option>
-                                    <option value="5">寺</option>
-                                    <option value="6">動物園</option>
-                                    <option value="7">展望台</option>
-                                </select>    
-                            </form>
-                            </div>
-                        <div class="comment-exp">
-                            <p>説明を入力してください</p>
-                            <input type="text" class="comment" id="comment" placeholder="例:jig.jp"><br>    
-                        </div>
-                        <div class="exp-btn-all">
-                            <input class="exp-btn js-modal-close" type="button" name="yes" value="はい" onclick="changeMarker()"/>
-                            <input class="exp-btn js-modal-close" type="button" name="no" value="いいえ"/>    
-                        </div>
-                    </div><!--modal__inner-->
-                </div><!--modal-->
-                <script type="text/javascript">
-                $(function(){
-                    $('.js-modal-open').on('click',function(){
-                        $('.js-modal').fadeIn();
-                        return false;
-                    });
-                    $('.js-modal-close').on('click',function(){
-                        $('.js-modal').fadeOut();
-                        return false;
-                    });
-                });
-                </script>    
             </section>
+            <section>
                 <div id="information" class="wrapper">
                 </div>
             </section>

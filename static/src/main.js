@@ -89,7 +89,7 @@ async function success(position) {
 
     function clickListener(event, map) {
         let comment = document.getElementById('comment');
-        const text = comment.value
+        const text = comment.value;
         let lat = event.latLng.lat();
         let lng = event.latLng.lng();
         let posi = [lat,lng];
@@ -145,6 +145,39 @@ async function success(position) {
                         map:map,
                         icon:{
                             url: './img/yama.png',
+                            scaledSize: new google.maps.Size(35,35)
+                        }
+                    });
+                    break;
+                
+                case 5:
+                    var Marker = new google.maps.Marker({
+                        position: {lat, lng},
+                        map:map,
+                        icon:{
+                            url: './img/temple.png',
+                            scaledSize: new google.maps.Size(35,35)
+                        }
+                    });
+                    break;
+
+                case 6:
+                var Marker = new google.maps.Marker({
+                    position: {lat, lng},
+                    map:map,
+                    icon:{
+                        url: './img/panda.png',
+                        scaledSize: new google.maps.Size(35,35)
+                    }
+                });
+                break;
+
+                case 7:
+                    var Marker = new google.maps.Marker({
+                        position: {lat, lng},
+                        map:map,
+                        icon:{
+                            url: './img/tenboudai.png',
                             scaledSize: new google.maps.Size(35,35)
                         }
                     });

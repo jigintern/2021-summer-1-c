@@ -6,7 +6,6 @@ html {
 
 body {
     font-family: "Yu Mincho",sans-serif;
-    color: #fff;
     background-color: #000;
 }
 
@@ -25,6 +24,9 @@ section {
     font-size: 1.5rem;
     text-align: center;
     margin-bottom: 25px;
+}
+.section-title h2{
+  color: #fff;
 }
 
 /*-------------------------------------------
@@ -87,6 +89,7 @@ main {
     padding-top:70px;
 }
 #explain .content {
+  color:#fff;
   padding: 10px;
 }
 #explain .content p{
@@ -106,19 +109,22 @@ main {
 マーカーアイコン
 -------------------------------------------*/
 
-.map-btn {
+/* .map-btn {
     position: relative;
     display: inline-block;
     padding: 0.25em 0.5em;
     text-decoration: none;
-    color: #FFF;
-    background: #668ad8;/*色*/
-    border: solid 1px #0f9ada;/*線色*/
+    background: #668ad8;
+    border: solid 1px #0f9ada;
     border-radius: 4px;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
     text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+} */
+
+.map-btn a{
+  color: #fff;
 }
-  
+
 .btn:active {
     border: solid 1px #03A9F4;
     box-shadow: none;
@@ -148,8 +154,8 @@ main {
   color:white;
 }
 .modal-content{
-  margin: 0 auto;
-  padding: 40px;
+  display: inline-block;
+  text-align: center;
 }
 .modal{
   display: none;
@@ -223,6 +229,8 @@ main {
 	color: #666666;
 }
 
+
+
 .exp-btn-all {
   text-align: center;
 }
@@ -233,4 +241,58 @@ main {
 
 .exp-btn:hover {
   border-bottom: solid 2px #049bff;
+}
+
+.map-btn{
+  text-decoration: none;
+  color: #545454;
+  display: inline-block;
+  padding: 0.5em 1em;
+  background-color: #454545;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  z-index: 1;
+}
+.map-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 20px auto 0;
+  background-color: white;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.map-btn:hover{
+  text-decoration: none;
+}
+
+.map-btn:hover:before {
+  transform: scale(30);
+  transition: .9s;
+  animation: pika 0.9s;
+}
+
+@keyframes pika {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
 }
