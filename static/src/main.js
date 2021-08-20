@@ -209,7 +209,8 @@ async function success(position) {
         const { data } = await getTravelData(19216800);
 
         for (const i in data) {
-            if (data[i].iconID) {
+            if (data[i].type === 'icon') {
+                console.log(data[i]);
                 let Marker = new google.maps.Marker({
                     map: map,
                     position: {

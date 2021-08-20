@@ -48,8 +48,9 @@ class MyServer extends Server{
             //位置情報を保存する
             //call:("/api/add",{travelID,data[{type,date,iconID,comment,lat,lng}]}),return:"ok"
             //
-            //type:icon(アイコン) ,data{type,iconID,comment,lat,lng}
-            //type:route(ユーザの位置情報),data{type,date,lat,lng}
+            //type:icon(アイコン) ,data{type:"icon",iconID,comment,lat,lng}
+            //type:route(ユーザの位置情報),data{type:"route",date,lat,lng}
+            //type:end(旅行の終了確認データ),data{type:"end",date}
             console.log("call add")
             for(const d in udata){
                if(udata[d].travelID==req.travelID){
@@ -126,7 +127,7 @@ class MyServer extends Server{
             //掲示板に書き込む
             //call:("/api/badd",data{未定}),return:"ok"
             board.push(req);
-            jsonfs.write(datafn,data);
+            jsonfs.write(boardfn,board);
             return "ok";
         } else if (path == "/api/blist") {
             //掲示板の内容を返却
