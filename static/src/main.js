@@ -271,3 +271,15 @@ async function add_Marker(iconID,position,comment){
         //window.location.reload();
     }
 }
+
+
+function changeMarker(){
+	const places = document.form1.places;
+
+	// 値(数値)を取得
+	const num = places.selectedIndex;
+	//const num = document.form1.color1.selectedIndex;
+
+	// 値(数値)から値(value値)を取得
+	changeImg(num);
+}
