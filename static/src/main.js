@@ -184,14 +184,12 @@ function success(position){
                         lng: data[i].lng
                     },
                     icon: {
-                        url: './img/star.png', // 削除予定
-                        // url: data[i].src,
+                        url: data[i].src,
                         scaledSize: new google.maps.Size(35,35)
                     }
                 });
                 let infoWindow = new google.maps.InfoWindow({
-                    content: "data[i].text" // 削除予定
-                    // content: data[i].text
+                    content: data[i].comment
                 });
                 google.maps.event.addListener(Marker, 'click', function() {
                     if(flag==false){
