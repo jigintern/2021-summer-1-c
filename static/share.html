@@ -12,22 +12,24 @@
         <script type= "text/javascript" src="src/main.js"></script>
     </head>
     <body>
-        <header>       
-            <div id="top">
-                <a href="index.html"><h1>タイトル</h1></a>
+        <header class="header">       
+            <div id="header">
+                <h1 class="site-title">
+                    <a href="index.html"><img src="img/logo.png"></a>
+                </h1>
                 <nav>
                     <div class="inner">
-                     <ul>
-                        <li><a href="index.html">トップページ</a></li>
-                        <li><a href="select.html">目的地選択</a></li>
-                        <li><a href="">掲示板</a></li>
-                      </ul>
+                        <ul>
+                            <li><a href="index.html">トップページ</a></li>
+                            <li><a href="select.html">目的地選択</a></li>
+                            <li><a href="share.html">掲示板</a></li>
+                        </ul>
                     </div>
                 </nav>
                 <div class="menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span class="menu_top"></span>
+                    <span class="menu_mid"></span>
+                    <span class="menu_btm"></span>
                 </div>
                 <div id="mask"></div>
             </div>
@@ -77,24 +79,28 @@
                 }
             }
         };
-            (function($) {      　//メニュー         
-                const $nav   = $('#top');
-                const $btn   = $('.menu');
-                const $mask  = $('#mask');
-                const open   = 'open';
+        (function ($) {//メニュー         
+            const $nav = $('#header');
+            const $btn = $('.menu');
+            const $mask = $('#mask');
+            const open = 'open';
 
-                $btn.on( 'click', function() {
-                    if ( ! $nav.hasClass( open ) ) {
-                        $nav.addClass( open );
-                    } else {
-                        $nav.removeClass( open );
-                    }
-                });
+            $btn.on('click', function () {
+                if (!$nav.hasClass(open)) {
+                    $nav.addClass(open);
+                    $btn.addClass(open); 
+                } else {
+                    $nav.removeClass(open);
+                    $btn.removeClass(open); 
+                }
+            });
 
-                $mask.on('click', function() {
-                    $nav.removeClass( open );
-                });
-            } )(jQuery);
+            $mask.on('click', function () {
+                $nav.removeClass(open);
+                $btn.removeClass(open); 
+            });
+
+        })(jQuery);
         </script>
     </body>
 </html>
