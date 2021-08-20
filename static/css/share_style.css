@@ -19,11 +19,21 @@ input, textarea {
     border: 1px solid gray;
     color: #fff;
 }
+
+#inp_body:focus {
+    border-bottom: solid 2px #049bff;
+}
+
 #inp_name{
     border-bottom: 1px solid gray;
     width: 60%;
     color: #fff;
 }
+
+#inp_name:focus {
+    border-bottom: solid 2px #049bff;
+}
+
 #btn_write{
     padding: 10px 25px;
     margin: 0 0 10px;
