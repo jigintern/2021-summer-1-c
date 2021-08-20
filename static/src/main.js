@@ -291,7 +291,7 @@ function onClick(){
 
 function changeImg(num){
     i = num;
-    if(i!=0){
+    if(i!=8){
         alert('マーカーを置きたい場所を選択してください');
     }
 }
