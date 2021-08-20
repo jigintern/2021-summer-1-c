@@ -63,6 +63,22 @@ class MyServer extends Server{
            udata[udata.length-1].data.push(req.data);
            jsonfs.write(udatafn,udata);
            return "make new record. push ok";
+        } else if (path == "/api/delete") {
+            //位置情報を削除する
+            console.log("call delete");
+            for(const d in udata){
+               if(udata[d].travelID==req.travelID){
+                    for(const i in udata[d].data){
+                        if (udata[d].data[i].lat === req.lat && udata[d].data[i].lng === req.lng) {
+                            udata[d].data.splice(i, 1);
+                            console.log(udata[d].data);
+                            jsonfs.write(udatafn,udata);
+                            return "delete ok";
+                        }
+                    }
+               }
+            }     
+           return "warning";
         } else if (path == "/api/uadd") {
             //userdata.jsonに新規ユーザを追加する
             //call:("/api/uadd",travelID),return:"ok" or "no"
