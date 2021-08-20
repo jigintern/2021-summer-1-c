@@ -34,5 +34,17 @@
     "name":"寺",
     "src":"./img/temple.png",
     "memo":"マップ用、現在未使用"
+  },
+  {
+    "iconID":6,
+    "name":"動物園",
+    "src":"./img/panda.png",
+    "memo":"マップ用"
+  },
+  {
+    "iconID":7,
+    "name":"展望台",
+    "src":"./img/tenboudai.png",
+    "memo":"マップ用"
   }
 ]
