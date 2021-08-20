@@ -89,7 +89,7 @@ async function success(position) {
 
     function clickListener(event, map) {
         let comment = document.getElementById('comment');
-        const text = comment.value;
+        let text = comment.value;
         if(text == ''){
             text = 'お気に入り';
         }
