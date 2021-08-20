@@ -127,7 +127,7 @@ class MyServer extends Server{
             //掲示板に書き込む
             //call:("/api/badd",data{未定}),return:"ok"
             board.push(req);
-            jsonfs.write(datafn,data);
+            jsonfs.write(boardfn,board);
             return "ok";
         } else if (path == "/api/blist") {
             //掲示板の内容を返却
