@@ -114,7 +114,6 @@ async function success(position) {
                             scaledSize: new google.maps.Size(35,35)
                         }
                     });
-                    i=0;
                     break;
 
                 case 2:
@@ -126,7 +125,6 @@ async function success(position) {
                             scaledSize: new google.maps.Size(35,35)
                         }
                     });
-                    i=0;
                     break;
 
                 case 3:
@@ -138,7 +136,6 @@ async function success(position) {
                             scaledSize: new google.maps.Size(35,35)
                         }
                     });
-                    i=0;
                     break;
     
                 case 4:
@@ -150,12 +147,12 @@ async function success(position) {
                             scaledSize: new google.maps.Size(35,35)
                         }
                     });
-                    i=0;
                     break;
 
             }
 
-            add_Marker(i,posi,text);
+            add_Marker(i, posi, text);
+            i = 0;
 
             var infoWindow = new google.maps.InfoWindow({
                 content: text
@@ -259,19 +256,26 @@ function change_map(num){
     sessionStorage.setItem("ID", num);
 }
 
-async function add_Marker(iconID,position,comment){
-    let travelID=cookieArray.travelID;
+/* マーカーデータを送信 */
+async function add_Marker(iconID, position, comment) {
+    
+    const travelID = getCookieArray().travelID;
     let lat = position[0];
     let lng = position[1];
-    let item={"travelID":travelID,data:{"type":"icon","iconID":iconID,"comment":comment,"lat":lat,"lng":lng}}
+    let item = {
+        travelID: travelID,
+        data: {
+            type: "icon",
+            iconID: iconID,
+            comment: comment,
+            lat: lat,
+            lng: lng
+        }
+    };
 
-    let ret=await fetchJSON("api/add",item);
-    if(ret.match(/push ok/)){
-        console.log("push ok");
-        //window.location.reload();
-    }
+    let ret = await fetchJSON("api/add", item);
+    if (ret.match(/push ok/)) console.log("push ok");
 }
-
 
 function changeMarker(){
 	const places = document.form1.places;
