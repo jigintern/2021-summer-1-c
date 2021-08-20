@@ -1,5 +1,5 @@
 'use strict';
-const locationID = sessionStorage.getItem("ID") || 1;
+const locationID = sessionStorage.getItem("ID");
 
 var flag = false;
 var i=0;
@@ -88,7 +88,8 @@ async function success(position) {
 
 
     function clickListener(event, map) {
-        let text = prompt('説明を入力して下さい','例:jig.jp');
+        let comment = document.getElementById('comment');
+        const text = comment.value
         let lat = event.latLng.lat();
         let lng = event.latLng.lng();
         let posi = [lat,lng];

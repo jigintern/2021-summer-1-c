@@ -143,6 +143,7 @@ main {
 .comment:focus {
   border-bottom: solid 2px #049bff;
 }
+
 #modal .modal-content a{
   color:white;
 }
@@ -152,6 +153,7 @@ main {
 }
 .modal{
   display: none;
+  text-align: center;
   height: 100vh;
   position: fixed;
   top: 0;
