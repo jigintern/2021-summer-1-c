@@ -333,6 +333,6 @@ async function delete_Marker(Marker) {
 
 function changeMarker(){
 	const places = document.form1.places;
-	const num = places - 1;
+	const num = Number(places.value);
 	changeImg(num);
 }
