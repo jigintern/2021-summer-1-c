@@ -1,7 +1,7 @@
 /* 旅初期化 */
 const initTravel = async() => {
     const cookieArray = getCookieArray();
-    console.log(cookieArray);
+    console.log(`travelID = ${cookieArray.travelID}`);
 
     // travelID作成
     if (cookieArray.travelID) { // ある場合
