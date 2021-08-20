@@ -2,7 +2,7 @@
 const locationID = sessionStorage.getItem("ID") || 1;
 
 var flag = false;
-var i=0;
+var i=8;
 function initMap(){
     if (typeof(navigator.geolocation) != 'undefined') {
         navigator.geolocation.watchPosition(success, error);
@@ -84,7 +84,7 @@ async function success(position) {
     var ne = new google.maps.LatLng(minlat,maxlng);
     var bounds = new google.maps.LatLngBounds(sw, ne);
     map.fitBounds(bounds,5);
-    // google.maps.event.addListener(map, 'click', event => clickListener(event, map));
+    google.maps.event.addListener(map, 'click', event => clickListener(event, map));
 
 
     function clickListener(event, map) {
@@ -185,11 +185,13 @@ async function success(position) {
                         }
                     });
                     break;
+                case 8:
+                    return;
 
             }
 
             add_Marker(i, posi, text);
-            i = 0;
+            i = 8;
 
             var infoWindow = new google.maps.InfoWindow({
                 content: text
