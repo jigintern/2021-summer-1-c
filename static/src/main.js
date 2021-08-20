@@ -1,5 +1,5 @@
 'use strict';
-const locationID = sessionStorage.getItem("ID");
+const locationID = sessionStorage.getItem("ID") || 1;
 
 var flag = false;
 var i=0;
@@ -206,7 +206,8 @@ async function success(position) {
 
     /* マーカーがある場合は追加 */
     const initMarker = async () => {
-        const { data } = await getTravelData(19216800);
+        const travelID = getCookieArray().travelID;
+        const { data } = await getTravelData(travelID);
 
         for (const i in data) {
             if (data[i].type === 'icon') {
