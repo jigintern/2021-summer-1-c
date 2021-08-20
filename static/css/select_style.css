@@ -27,6 +27,16 @@ body {
   margin: 0 auto 30px auto;
 }
 
+a{
+  text-decoration: none;
+}
+a:link {
+  color: #fff
+}
+a:visited {
+  color: #fff
+}
+
 /*-------------------------------------------
 icon
 -------------------------------------------*/

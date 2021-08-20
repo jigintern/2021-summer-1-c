@@ -84,12 +84,15 @@ async function success(position) {
     var ne = new google.maps.LatLng(minlat,maxlng);
     var bounds = new google.maps.LatLngBounds(sw, ne);
     map.fitBounds(bounds,5);
-    google.maps.event.addListener(map, 'click', event => clickListener(event, map));
+    // google.maps.event.addListener(map, 'click', event => clickListener(event, map));
 
 
     function clickListener(event, map) {
         let comment = document.getElementById('comment');
         const text = comment.value;
+        if(text == ''){
+            text = 'お気に入り';
+        }
         let lat = event.latLng.lat();
         let lng = event.latLng.lng();
         let posi = [lat,lng];

@@ -27,6 +27,16 @@ body {
   padding: 0 4%;
 }
 
+a{
+  text-decoration: none;
+}
+a:link {
+  color: #fff
+}
+a:visited {
+  color: #fff
+}
+
 /* h2{
   margin: 60px auto;
   border: 1px solid #000;
@@ -275,7 +285,9 @@ div > img{
   padding-top: 40px;
   text-align: center;
 } 
+
 .share-btn p{
+  text-decoration: none;
   color: #fff;
 }
 .share-btn {
