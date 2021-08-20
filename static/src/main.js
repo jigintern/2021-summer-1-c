@@ -1,4 +1,6 @@
 'use strict';
+const locationID = sessionStorage.getItem("ID");
+
 var flag = false;
 var i=0;
 function initMap(){
@@ -7,16 +9,16 @@ function initMap(){
     }
 }
 
-function success(position){
-    var targetlat = 35.94292;
-    var targetlng = 136.186513;
+async function success(position) {
+    const location = await getLocation(locationID); // 目的地
+
+    var targetlat = location.lat;
+    var targetlng = location.lng;
     var targetlatlng = new google.maps.LatLng(targetlat,targetlng);
 
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
     var latlng = new google.maps.LatLng(lat,lng);
-    
-    const dist = getDist(lat, lng, targetlat, targetlng); // 現在地と目的地との距離を取得
 
     var map = new google.maps.Map(document.getElementById('map'),{
         center: latlng,
@@ -41,7 +43,7 @@ function success(position){
     });
 
     var infoWindow = new google.maps.InfoWindow({
-		content: 'めがね会館'
+		content: location.name
 	});
 
 	google.maps.event.addListener(TargetMarker, 'click', function() {
