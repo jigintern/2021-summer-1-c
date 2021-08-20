@@ -48,8 +48,9 @@ class MyServer extends Server{
             //位置情報を保存する
             //call:("/api/add",{travelID,data[{type,date,iconID,comment,lat,lng}]}),return:"ok"
             //
-            //type:icon(アイコン) ,data{type,iconID,comment,lat,lng}
-            //type:route(ユーザの位置情報),data{type,date,lat,lng}
+            //type:icon(アイコン) ,data{type:"icon",iconID,comment,lat,lng}
+            //type:route(ユーザの位置情報),data{type:"route",date,lat,lng}
+            //type:end(旅行の終了確認データ),data{type:"end",date}
             console.log("call add")
             for(const d in udata){
                if(udata[d].travelID==req.travelID){
