@@ -1,28 +1,26 @@
 /* 旅初期化 */
 const initTravel = async() => {
     const cookieArray = getCookieArray();
-    console.log(`travelID = ${cookieArray.travelID}`);
 
     // travelID作成
     if (cookieArray.travelID) { // ある場合
-        // getTravelData(cookieArray.travelID); // 旅行データを取得
-        getTravelData(19216800); // 仮のデータ
+        getTravelData(cookieArray.travelID); // 旅行データを取得
+        // getTravelData(19216800); // 仮のデータ
     } else { // ない場合
         const date = new Date();
         const destination = '眼鏡会館';
 
-        alert('データを作成しました'); // 削除予定
+        sha256(`${date}${destination}`).then(async function(hash) {
+            createCookie('travelID', hash, 7); // Cookie作成
+            // createCookie('travelID', 19216800, 7); // 仮のデータ
 
-        sha256(`${date}${destination}`).then(hash => {
-            // createCookie('travelID', hash, 7); // Cookie作成
-            createCookie('travelID', 19216800, 7); // 仮のデータ
+            const ret = await fetchJSON("api/uadd",hash);
+            if(ret=="this ID exists"){
+                console.log("this ID exists");
+            }else{
+                console.log("make new record. push ok");
+            }
         });
-        const ret = await fetchJSON("api/uadd",cookieArray.travelID);
-        if(ret=="this ID exists"){
-            console.log("this ID exists");
-        }else{
-            console.log("make new record. push ok");
-        }
     }
 }
 
@@ -70,8 +68,6 @@ const getTravelData = async travelID => {
     let iconID;
     const data = await fetchJSON(`api/get?${travelID}`);
     const icon = await fetchJSON('api/icon');
-
-    if (data == 'warning') alert('データが違います'); // 削除予定
     
     for (const i in data.data) {
         if (data.data[i].type === 'icon') {
@@ -81,6 +77,7 @@ const getTravelData = async travelID => {
         }
     }
 
+    console.log(`travelID = ${travelID}`);
     return data;
 }
 

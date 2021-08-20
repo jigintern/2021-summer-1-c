@@ -72,6 +72,7 @@ class MyServer extends Server{
                 }
             }
             udata.push({travelID:req,data:[]});
+            jsonfs.write(udatafn,udata);
             return "make new record. push ok";
         } else if (path == "/api/get") {
             //位置情報を取得する
