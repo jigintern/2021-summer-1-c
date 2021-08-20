@@ -2,7 +2,7 @@
 const locationID = sessionStorage.getItem("ID") || 1;
 
 var flag = false;
-var i=0;
+var i = 8;
 function initMap(){
     if (typeof(navigator.geolocation) != 'undefined') {
         navigator.geolocation.watchPosition(success, error);
@@ -89,7 +89,7 @@ async function success(position) {
 
     function clickListener(event, map) {
         let comment = document.getElementById('comment');
-        const text = comment.value;
+        let text = comment.value;
         if(text == ''){
             text = 'お気に入り';
         }
@@ -98,7 +98,7 @@ async function success(position) {
         let posi = [lat,lng];
         if(text!=null){
             switch (i){
-                case 8:
+                case 0:
                     var Marker = new google.maps.Marker({
                         position: {lat, lng},
                         map:map,
@@ -191,7 +191,7 @@ async function success(position) {
             }
 
             add_Marker(i, posi, text);
-            i = 0;
+            i = 8;
 
             var infoWindow = new google.maps.InfoWindow({
                 content: text
@@ -290,8 +290,8 @@ function onClick(){
 }
 
 function changeImg(num){
-    i = num;   
-    if(i!=0||i!=null){
+    i = num;
+    if(i!=0){
         alert('マーカーを置きたい場所を選択してください');
     }
 }
@@ -333,11 +333,6 @@ async function delete_Marker(Marker) {
 
 function changeMarker(){
 	const places = document.form1.places;
-
-	// 値(数値)を取得
-	const num = places.selectedIndex;
-	//const num = document.form1.color1.selectedIndex;
-
-	// 値(数値)から値(value値)を取得
+	const num = places. - 1;
 	changeImg(num);
 }

@@ -234,6 +234,7 @@ main {
 
 .exp-btn{
   text-align: center;
+  margin: 0 20px;
 }
 
 .exp-btn:hover {
