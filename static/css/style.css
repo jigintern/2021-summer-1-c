@@ -130,10 +130,6 @@ main {
   padding-bottom: 30px;
 }
 
-.comment-exp input {
-  width:400px;
-}
-
 .comment {
   border-bottom: solid 2px #AEAEAE;
   margin: 1rem auto;
