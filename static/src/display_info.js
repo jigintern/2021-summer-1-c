@@ -1,4 +1,5 @@
 /* 現在地と目的地との距離を取得 */
+/*
 const getDist = async (lat, lng, targetlat, targetlng) => {
     const value = {
         origin: { lat, lng },
@@ -7,7 +8,22 @@ const getDist = async (lat, lng, targetlat, targetlng) => {
     const dist = await fetchJSON(`api/dist?${JSON.stringify(value)}`); // 距離
     return dist;
 }
+*/
+// import { getDistance } from "https://js.sabae.cc/getDistance.js";
+// based on https://qiita.com/kawanet/items/a2e111b17b8eb5ac859a
 
+const getDistance = (lat1, lng1, lat2, lng2) => { // ret meter
+    const R = Math.PI / 180;
+    lat1 *= R;
+    lng1 *= R;
+    lat2 *= R;
+    lng2 *= R;
+    return 6371 * Math.acos(Math.cos(lat1) * Math.cos(lat2) * Math.cos(lng2 - lng1) + Math.sin(lat1) * Math.sin(lat2));
+};
+const getDist = async (lat, lng, targetlat, targetlng) => {
+    return getDistance(lat, lng, targetlat, targetlng) * 1000;
+};
+  
 /* 目的地を取得 */
 const getLocation = async(id) => {
     const data = await fetchJSON(`api/loca?${id}`);
