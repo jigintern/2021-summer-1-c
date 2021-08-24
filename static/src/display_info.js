@@ -21,43 +21,37 @@ const getInfo = async(id) => {
 }
 
 /* マップに表示する目的地情報を取得 */
-const getDisplayInfo = async (locationID, lat, lng, targetlat, targetlng, distance) => {
-    let calDist = 100; // 情報を全て表示する距離
-    const step = 100; // stepずつ距離を増加させる
-    const arr = [];
+const getDisplayInfo = async (locationID, lat, lng, targetlat, targetlng) => {
+    const mstep = 500; // 1つオープンする距離(m)
     const rand = {  // ランダム生成
         max: 0.002,
         min: -0.002,
         lat: 0,
         lng: 0
     };
-
-    const dist = distance || await getDist(lat, lng, targetlat, targetlng); // 現在地と目的地との距離を取得
+  
+    const dist = await getDist(lat, lng, targetlat, targetlng); // 現在地と目的地との距離を取得
+    console.log("dist", dist + "m");
     const location = await getLocation(locationID); // 目的地を取得
     const info = await getInfo(locationID); // 目的地情報を取得
-
+  
+    console.log("n_info", info.length); // 情報の数 めがね会館で3つ
+    const distance2 = (info.length - 1) * mstep; // 2つが開く距離
+    const nshow = dist > distance2 ? 1 : 1 + Math.ceil((distance2 - dist) / mstep); // 表示する数
+    console.log("n_show", nshow); // 表示する数
+    
     // arr配列に追加
-    for (let i = 0; i < info.length; i++) {
+    const arr = [];
+    for (let i = 0; i < nshow; i++) {
         rand.lat = Math.random() * (rand.max - rand.min) + rand.min; // rand.min～rand.maxまでの数をランダムで生成
         rand.lng = Math.random() * (rand.max - rand.min) + rand.min; // rand.min～rand.maxまでの数をランダムで生成
-
+  
         arr.push({
-            dist: calDist,
             info: info[i],
             lat: location.lat + rand.lat,
             lng: location.lng + rand.lng
         });
-        calDist += step;
     }
-
-    const resultArr = arr.filter(value => value.dist >= dist); // 出力する情報
-
-    // 降順ソート
-    resultArr.sort((a,b) => {
-        if (a.dist > b.dist) return -1;
-        if (a.dist < b.dist) return 1;
-        return 0;
-    });
-    
-    return resultArr;
+    return arr;
 }
+  
