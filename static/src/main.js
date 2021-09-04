@@ -246,8 +246,7 @@ async function success(position) {
 
     /* 目的地情報をマップに表示 */
     const DisplayInfo = async () => {
-        // const data = await getDisplayInfo(locationID, lat, lng, targetlat, targetlng); // 表示する情報を取得
-        const data = await getDisplayInfo(locationID, lat, lng, targetlat, targetlng, 100); // 表示する情報を取得（距離を偽造)
+        const data = await getDisplayInfo(locationID, lat, lng, targetlat, targetlng); // 表示する情報を取得
 
         for (const i in data) {
             let Marker = new google.maps.Marker({
