@@ -1,5 +1,8 @@
 import {Server} from "https://js.sabae.cc/Server.js";
 import {jsonfs} from "https://js.sabae.cc/jsonfs.js";
+import dotenv from "https://taisukef.github.io/denolib/dotenv.js";
+
+dotenv.config();
 
 const locafn="data/location.json";
 const infofn="data/information.json";
@@ -7,8 +10,8 @@ const iconfn="data/icon.json";
 const udatafn="data/userdata.json";
 const boardfn="data/board.json";
 
-const DIRECTIONS_API_URL = 'https://maps.googleapis.com/maps/api/directions/json?'
-const DIRECTIONS_API_KEY = 'AIzaSyBiAGQru246aR7Ht9TuJK0id87_q-spITU';
+const DIRECTIONS_API_URL = Deno.env.get("DIRECTIONS_API_URL");
+const DIRECTIONS_API_KEY = Deno.env.get("DIRECTIONS_API_KEY");
 
 let loca=jsonfs.read(locafn)||[];
 let info=jsonfs.read(infofn)||[];
